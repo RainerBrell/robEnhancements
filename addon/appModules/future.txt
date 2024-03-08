@@ -1,0 +1,19 @@
+"""
+	@script(
+		#Translators: Jump to next misspelling in Outlook mail body.
+		description=_("Jump to next misspelling in Outlook mail body."),
+		gesture="kb:nvda+,"
+	)
+	def script_gotoNextSpellError  (self, gesture):	
+		out = "List of spelling errors"
+		dom = api.getFocusObject().appModule.nativeOm
+		focus = api.getFocusObject() 
+		if dom: 
+			out = out + "\nClassname / Role : " + focus.windowClassName + " " + str(focus.role) 
+			#elc = dom.ActiveDocument().Spellingerrors.count
+			#ErrorList = dom.ActiveExplorer().CurrentFolder.Name
+			#out = out + "\nFoldername: " + Folder.Name + "(" + str(UnreadCount) + ")"
+		else:
+			out = out + "\nDOM not availabel"
+		ui.browseableMessage(out)
+"""

@@ -1,0 +1,85 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-08 19:56+0100\n"
+"PO-Revision-Date: 2024-03-08 20:07+0100\n"
+"Last-Translator: Rainer Brell <nvda@brell.net>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#. Translators: Name of the category for the keyboard mapping dialog
+#: buildVars.py:23 outlook.py:45 start.py:52
+msgid "ROB enhancements"
+msgstr "ROB Verbesserungen"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid "support for various apps and some new functions."
+msgstr "Unterstützung für verschiedene Apps und einige neue Funktionen."
+
+#. outlook 2010
+#. Translators: unsupported Outlook version
+#: outlook.py:36
+msgid "Your Outlook version {Versionsnumber} is not supported."
+msgstr "Ihre Outlook-Version {Versionsnumber} wird nicht unterstützt."
+
+#. tones.beep(100, 100)
+#. Translators: empty outlook folder
+#: outlook.py:67
+msgid "This folder is empty."
+msgstr "Dieser Ordner ist leer."
+
+#. Translators: Jumps to the next Outlook folder with unread mails below the inbox.
+#: outlook.py:71
+msgid "Jumps to the next Outlook folder with unread mails below the inbox."
+msgstr "Springt zum nächsten Outlook-Ordner mit ungelesenen E-Mails unterhalb des Posteingangs."
+
+#. Translators: unread mails found in folder
+#: outlook.py:89
+msgid "{count} mails in the folder {folder}"
+msgstr "{count} Mails im Ordner {folder}"
+
+#. Translators: No unread mails found
+#: outlook.py:94
+msgid "No unread mails found"
+msgstr "Keine ungelesenen E-Mails gefunden"
+
+#. Translators: if the outlook object modell is not available
+#: outlook.py:97
+msgid "Outlook object  not available - please contact the addon developer"
+msgstr "Outlook-Objekt nicht verfügbar – wenden Sie sich bitte an den Add-on-Entwickler"
+
+#. Translators: Shows the current URL of the document, press twice = copies to the clipboard.
+#: start.py:60
+msgid "Show document URL, press twice copies to clipboard."
+msgstr "Seiten-URL anzeigen, zweimal drücken, in die Zwischenablage kopieren."
+
+#. Translators: URL copied to clipboard
+#: start.py:72
+msgid "copied to clipboard {URL}."
+msgstr "Kopiert - {URL}"
+
+#. Translators: No URL found in browser document
+#: start.py:75
+msgid "Document URL not found."
+msgstr "Seiten-URL nicht gefunden."
+
+#. Translators: The user is not in a browser.
+#: start.py:78
+msgid "No browser window found."
+msgstr "Kein Browserfenster gefunden."
