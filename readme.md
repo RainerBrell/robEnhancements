@@ -2,7 +2,7 @@
 
 ## Windows Explorer and Browsers
 
-* Empty folders are usually recognized and displayed in Windows Explorer.
+* Empty folders are usually recognized and displayed in Windows 10 Explorer.
 * Use Ctrl+NVDA+f4 to show document URL, press twice, copy to clipboard.
 
 ## Microsoft Outlook
