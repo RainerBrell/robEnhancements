@@ -25,7 +25,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("""support for various apps and some new functions."""),
 	# version
-	"addon_version": "2024.03.20",
+	"addon_version": "2024.03.24",
 	# Author(s)
 	"addon_author": "Rainer Brell <nvda@brell.net>",
 	# URL for the add-on documentation support
