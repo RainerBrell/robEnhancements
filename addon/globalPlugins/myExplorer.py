@@ -1,14 +1,17 @@
 # -*- coding: UTF-8 -*-
-# NVDA ROB enhancements / myExplorer 
-# This file is covered by the GNU General Public License.
-# See the file COPYING for more details.
-# Copyright (C) 2024 Rainer Brell nvda@brell.net 
+"""
+ ROB enhancements for NVDA - Module myExplorer 
+ This file is covered by the GNU General Public License.
+ See the file COPYING for more details.
+ Copyright (C) 2024 Rainer Brell nvda@brell.net 
+"""
 
 import globalPluginHandler
 from tones import beep 
 import ui
 import controlTypes
 from core import callLater 
+from logHandler import log 
 import api 
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
@@ -24,12 +27,19 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def event_nameChange(self, obj, nextHandler):
 		self.appName = obj.appModule.appName
+		log.info(str("Appname: " + self.appName))
 		if self.appName == "explorer": 
+			#beep(500, 100)
+			s = str(obj.role) 
+			log.info(s) 
 			if obj.role == controlTypes.ROLE_STATICTEXT and obj.windowClassName == "DirectUIHWND":
+				#beep(500, 500) 
 				focus = api.getFocusObject()
 				if focus.childCount == 0 and obj.UIAAutomationId == "EmptyText":
 					listItem = obj.name 
 					callLater(500, lambda: self.addTo(listItem))
+				if obj.parent.parent.role == controlTypes.STATUSBAR:
+					beep(300, 600)
 		nextHandler()
 
 	def addTo(self, listItem):

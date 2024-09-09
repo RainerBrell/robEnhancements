@@ -8,78 +8,268 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-08 19:56+0100\n"
-"PO-Revision-Date: 2024-03-08 20:07+0100\n"
+"POT-Creation-Date: 2024-09-09 19:25+0200\n"
+"PO-Revision-Date: 2024-09-09 19:24+0200\n"
 "Last-Translator: Rainer Brell <nvda@brell.net>\n"
 "Language-Team: \n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "X-Generator: Poedit 3.4.2\n"
 
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information found in Add-ons Manager.
 #. Translators: Name of the category for the keyboard mapping dialog
-#: buildVars.py:23 outlook.py:45 start.py:52
+#: buildVars.py:23 D:\GitHub\robEnhancements\addon\appModules\outlook.py:150
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:74
 msgid "ROB enhancements"
 msgstr "ROB Verbesserungen"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 #: buildVars.py:26
-msgid "support for various apps and some new functions."
-msgstr "Unterstützung für verschiedene Apps und einige neue Funktionen."
+msgid ""
+"This extension adds new functionality to applications and provides new "
+"global help:\n"
+"\n"
+"If a Markdown file (*.md) is selected in Windows Explorer or total "
+"Commander:\n"
+"\n"
+"NVDA+Alt+Space, Views the file in the NVDA browser.\n"
+"NVDA+Alt+Shift+Space, saves the file in HTML format.\n"
+"\n"
+"In all browsers:\n"
+"\n"
+"NVDA+Ctrl+f4, show page URL, press twice, copy to clipboard.\n"
+"\n"
+"Microsoft Outlook 13 or later:\n"
+"\n"
+"Shift+Alt+j, Jumps to the next folder with unread emails below the Inbox "
+"folder.\n"
+"Shift+Ctrl+Alt+i, Saves the current folder as Folder 1\n"
+"Shift+Alt+i, Go to Folder 1\n"
+"\n"
+"A further 4 folders can be defined and jumped to. The folders can also be in "
+"another account. The gestures for this are still freely available."
+msgstr ""
+"Diese Erweiterung fügt Anwendungen neue Funktionen hinzu und stellt neue "
+"globale Hilfen bereit:\n"
+"\n"
+"Ist eine Markdown-Datei (*.md) im windows-Explorer oder total Commander "
+"ausgewählt:\n"
+"\n"
+"NVDA+Alt+Leerzeichen, Zeigt die Datei im NVDA-Browser an.\n"
+"NVDA+Alt+Umschalt+Leerzeichen, Speichert die Datei im HTML-Format.\n"
+"\n"
+"In allen Browsern:\n"
+"\n"
+"NVDA+Strg+f4, Seiten-URL anzeigen, zweimal drücken, in die Zwischenablage "
+"kopieren.\n"
+"\n"
+"Microsoft Outlook 13 oder höher:\n"
+"\n"
+"Umschalt+Alt+j, Springt zum nächsten Ordner mit ungelesenen Mails unterhalb "
+"des Ordners Posteingang.\n"
+"Umschalt+Strg+Alt+i, Speichert den aktuellen Ordner als Ordner 1\n"
+"Umschalt+Alt+i, Gehe zu Ordner 1\n"
+"\n"
+"Es können weitere 4 Ordner festgelegt und angesprungen werden. Die Ordner "
+"können sich auch in einem anderen Konto befinden. Die Gesten dafür sind noch "
+"frei zu belegen."
 
 #. outlook 2010
 #. Translators: unsupported Outlook version
-#: outlook.py:36
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:64
 msgid "Your Outlook version {Versionsnumber} is not supported."
 msgstr "Ihre Outlook-Version {Versionsnumber} wird nicht unterstützt."
 
+#. Translators: Outlook mail Folder {nr} saved
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:86
+msgid "Folder {nr} saved as {folderPath}"
+msgstr "Ordner {nr} gespeichert - {folderPath}"
+
+#. Translators: Error saving folder
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:90
+msgid "Error saving folder"
+msgstr "Fehler beim Speichern des Ordners"
+
+#. Translators: No folder set yet
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:105
+msgid ""
+"The folder {nr} has not been specified yet. Please specify a folder to jump "
+"to first."
+msgstr ""
+"Der Ordner {nr} wurde noch nicht angegeben. Bitte geben Sie einen Ordner an, "
+"zu dem zuerst gesprungen werden soll."
+
+#. Translators: Go to the folder
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:129
+msgid "Go to the folder {entry}"
+msgstr "Gehe zu {entry}"
+
+#. Translators: Can not found the Folder
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:136
+msgid "Can not found the folder {folderList}"
+msgstr "Der Ordner {folderList} kann nicht gefunden werden."
+
+#. Translators: Can not found the outlook account
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:140
+msgid "Can not found the account: {account}"
+msgstr "Das Konto {account} wurde nicht gefunden."
+
+#. Translators: Error, cannot go to the specified path.
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:144
+msgid "Error, cannot go to the specified path {newPath}."
+msgstr "Fehler, der angegebene Pfad {newPath} kann nicht aufgerufen werden1."
+
 #. tones.beep(100, 100)
 #. Translators: empty outlook folder
-#: outlook.py:67
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:172
 msgid "This folder is empty."
 msgstr "Dieser Ordner ist leer."
 
 #. Translators: Jumps to the next Outlook folder with unread mails below the inbox.
-#: outlook.py:71
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:176
 msgid "Jumps to the next Outlook folder with unread mails below the inbox."
-msgstr "Springt zum nächsten Outlook-Ordner mit ungelesenen E-Mails unterhalb des Posteingangs."
+msgstr ""
+"Springt zum nächsten Outlook-Ordner mit ungelesenen E-Mails unterhalb des "
+"Posteingangs."
 
 #. Translators: unread mails found in folder
-#: outlook.py:89
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:195
 msgid "{count} mails in the folder {folder}"
 msgstr "{count} Mails im Ordner {folder}"
 
 #. Translators: No unread mails found
-#: outlook.py:94
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:200
 msgid "No unread mails found"
 msgstr "Keine ungelesenen E-Mails gefunden"
 
 #. Translators: if the outlook object modell is not available
-#: outlook.py:97
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:203
 msgid "Outlook object  not available - please contact the addon developer"
-msgstr "Outlook-Objekt nicht verfügbar – wenden Sie sich bitte an den Add-on-Entwickler"
+msgstr ""
+"Outlook-Objekt nicht verfügbar – wenden Sie sich bitte an den Add-on-"
+"Entwickler"
+
+#. Translators: set outlook mail folder 1
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:210
+msgid "Set outlook mail folder 1"
+msgstr "Outlook-Ordner 1 festlegen"
+
+#. Translators: Go to outlook mail folder 1
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:218
+msgid "Go to outlook mail folder 1"
+msgstr "Gehe zu Outlook-Ordner 1"
+
+#. Translators: set outlook mail folder 2
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:226
+msgid "Set outlook mail folder 2"
+msgstr "Outlook-Ordner 2 festlegen"
+
+#. Translators: Go to outlook mail folder 2
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:234
+msgid "Go to outlook mail folder 2"
+msgstr "Gehe zu Outlook-Ordner 2"
+
+#. Translators: set outlook mail folder 3
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:242
+msgid "Set outlook mail folder 3"
+msgstr "Outlook-Ordner 3 festlegen"
+
+#. Translators: Go to outlook mail folder 3
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:250
+msgid "Go to outlook mail folder 3"
+msgstr "Gehe zu Outlook-Ordner 3"
+
+#. Translators: set outlook mail folder 4
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:258
+msgid "Set outlook mail folder 4"
+msgstr "Outlook-Ordner 4 festlegen"
+
+#. Translators: Go to outlook mail folder 4
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:266
+msgid "Go to outlook mail folder 4"
+msgstr "Gehe zu Outlook-Ordner 4"
+
+#. Translators: set outlook mail folder 5
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:274
+msgid "Set outlook mail folder 5"
+msgstr "Outlook-Ordner 5 festlegen"
+
+#. Translators: Go to outlook mail folder 5
+#: D:\GitHub\robEnhancements\addon\appModules\outlook.py:282
+msgid "Go to outlook mail folder 5"
+msgstr "Gehe zu Outlook-Ordner 5"
 
 #. Translators: Shows the current URL of the document, press twice = copies to the clipboard.
-#: start.py:60
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:82
 msgid "Show document URL, press twice copies to clipboard."
 msgstr "Seiten-URL anzeigen, zweimal drücken, in die Zwischenablage kopieren."
 
 #. Translators: URL copied to clipboard
-#: start.py:72
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:94
 msgid "copied to clipboard {URL}."
 msgstr "Kopiert - {URL}"
 
 #. Translators: No URL found in browser document
-#: start.py:75
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:97
 msgid "Document URL not found."
 msgstr "Seiten-URL nicht gefunden."
 
 #. Translators: The user is not in a browser.
-#: start.py:78
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:100
 msgid "No browser window found."
 msgstr "Kein Browserfenster gefunden."
+
+#. Translators: Shows the current markdown file in the NVDA browser
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:104
+msgid "Shows the current markdown file in the NVDA browser"
+msgstr "Zeigt die aktuelle Markdown-Datei im NVDA-Browser an"
+
+#. Translators: it is not a markdown file
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:113
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:140
+msgid "{markdownFile} is not a Markdown file"
+msgstr "{markdownFile} ist keine Markdown-Datei"
+
+#. Translators: No markdown file selected
+#. Translators: No markdown file selekted
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:117
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:144
+msgid "No markdown file selected"
+msgstr "Keine Markdown-Datei ausgewählt"
+
+#. translators: HTML viewer title
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:126
+msgid "Content of {markdownFile} in HTML"
+msgstr "Inhalt von {markdownFile}"
+
+#. Translators: Saves the selected markdown file as an HTML file
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:132
+msgid "Saves the selected markdown file as an HTML file"
+msgstr "Speichert die ausgewählte Markdown-Datei als HTML-Datei"
+
+#. Translators: No access to the folder
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:151
+msgid "No access to the folder {currentPath}"
+msgstr "Kein Zugriff auf den Ordner {currentPath}."
+
+#. Translators: The HTML file could not be created
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:160
+msgid "The HTML file {htmlFile} could not be created."
+msgstr "Die Datei {htmlFile} konnte nicht erstellt werden."
+
+#. Translators: The HTML file was written successfully
+#: D:\GitHub\robEnhancements\addon\globalPlugins\start.py:163
+msgid "The HTML file {htmlFile} was written successfully"
+msgstr "Die HTML-Datei {htmlFile} wurde erfolgreich geschrieben"
+
+#~ msgid ""
+#~ "\n"
+#~ "support for various apps and some new functions.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Unterstützung für verschiedene Apps und einige neue Funktionen.\n"

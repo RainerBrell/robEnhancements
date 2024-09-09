@@ -5,7 +5,8 @@
  This file is covered by the GNU General Public License.
  See the file COPYING for more details.
  Copyright (C) 2024 Rainer Brell nvda@brell.net 
- Mod: 2024.03.08 
+ last Modify: September 2024 
+ - GoToFolders 
 """
 
 import appModuleHandler
@@ -28,6 +29,33 @@ import addonHandler
 
 addonHandler.initTranslation()
 
+AddOnName = addonHandler.getCodeAddon().manifest['name']
+sectionName = AddOnName
+
+def initConfiguration():
+	confspec = { 
+		"Folder1": "string(default='')",
+		"Folder2": "string(default='')",
+		"Folder3": "string(default='')",
+		"Folder4": "string(default='')",
+		"Folder5": "string(default='')"
+	}
+	config.conf.spec[sectionName] = confspec
+
+initConfiguration()
+
+def getINI(key):
+	"""  get nvda.ini value """ 
+	value = config.conf[sectionName][key]
+	return value 
+
+def setINI(key, value):
+	"""  set nvda.ini value """ 
+	try:
+		config.conf[sectionName][key] = value
+	except:
+		pass 
+		
 def isValidVersion():
 	obj = api.getFocusObject()
 	appVersionMajor = int(obj.appModule.productVersion.split('.')[0])
@@ -38,6 +66,83 @@ def isValidVersion():
 		return False
 	else:
 		return True 
+		
+def SetFolder(nr):
+	if not isValidVersion(): 
+		return 
+	try:
+		dom = api.getFocusObject().appModule.nativeOm
+		if dom:
+			folderPath = dom.ActiveExplorer().CurrentFolder.FolderPath
+			if   nr == 1: setINI("Folder1", folderPath)
+			elif nr == 2: setINI("Folder2", folderPath)
+			elif nr == 3: setINI("Folder3", folderPath)
+			elif nr == 4: setINI("Folder4", folderPath)
+			elif nr == 5: setINI("Folder5", folderPath)
+			else: 
+				ui.message("Error - unknown folder nomber")
+			folderPath = folderPath.replace("\\\\", "")
+			# Translators: Outlook mail Folder {nr} saved 
+			msg = _("Folder {nr} saved as {folderPath}").format(nr=nr, folderPath=folderPath)
+			ui.message(msg)
+	except:
+		# Translators: Error saving folder
+		msg = _("Error saving folder")
+		ui.message(msg) 
+
+	
+def GoToFolder(nr):
+	if not isValidVersion(): 
+		return 
+	if   nr == 1: newPath = getINI("Folder1")
+	elif nr == 2: newPath = getINI("Folder2")
+	elif nr == 3: newPath = getINI("Folder3")
+	elif nr == 4: newPath = getINI("Folder4")
+	elif nr == 5: newPath = getINI("Folder5")
+	else: newPath = ""
+	if not newPath:
+		# Translators: No folder set yet
+		msg = _("The folder {nr} has not been specified yet. Please specify a folder to jump to first.").format(nr=nr)
+		ui.message(msg) 
+		return 
+	newPathList = newPath.split("\\") 
+	account     = newPathList[2]
+	folderList  = newPathList[3:]
+	try:
+		dom = api.getFocusObject().appModule.nativeOm
+		if dom:
+			nameSpace = dom.GetNamespace("MAPI")
+			existsAccount = False 
+			for acc in nameSpace.Folders: 
+				if acc.name == account:
+					existsAccount = True 
+					existsFolder = False 
+					index = 0
+					currentFolder = acc.folders
+					for entry in folderList:
+						index += 1
+						for folder in currentFolder:
+							if folder.name == entry: 
+								newFolder = folder.folders 
+								if index == len(folderList):
+									# Translators: Go to the folder
+									msg = _("Go to the folder {entry}").format(entry=entry)
+									ui.message(msg) 
+									dom.ActiveExplorer().CurrentFolder = folder 
+									return 
+						currentFolder = newFolder
+					if not existsFolder:
+						# Translators: Can not found the Folder 
+						msg = _("Can not found the folder {folderList}").format(folderList=folderList)
+						ui.message(msg) 
+			if not existsAccount:
+				# Translators: Can not found the outlook account 
+				msg = _("Can not found the account: {account}").format(account=account)
+				ui.message(msg) 
+	except: 
+		# Translators: Error, cannot go to the specified path.
+		msg = _("Error, cannot go to the specified path {newPath}.").foramt(newPath=newPath)
+		ui.message(msg) 
 
 class AppModule(outlook.AppModule):
 
@@ -80,9 +185,10 @@ class AppModule(outlook.AppModule):
 			if dom: 
 				folderName = dom.ActiveExplorer().CurrentFolder.Name
 				myInbox = dom.GetNamespace("MAPI").GetDefaultFolder(6)
+				#myInbox = dom.GetNamespace("MAPI").Folders("rainer@brell.net").Folders("Posteingang")
 				Folders = myInbox.Folders
 				FoldersCount = Folders.Count 
-				for Folder  in Folders:
+				for Folder in Folders:
 					UnreadCount = Folder.UnReadItemCount
 					if UnreadCount > 0:
 						# Translators: unread mails found in folder
@@ -96,6 +202,85 @@ class AppModule(outlook.AppModule):
 				# Translators: if the outlook object modell is not available
 				out = _("Outlook object  not available - please contact the addon developer")
 				ui.browseableMessage(out)
-		except:
+		except COMError:
 			ui.message("Error in jump function")
 
+	@script(
+		#Translators: set outlook mail folder 1
+		description=_("Set outlook mail folder 1"),
+		gesture="kb:alt+control+shift+i" 
+	)
+	def script_SetFolder1(self, gesture):	
+		SetFolder(1)
+	
+	@script(
+		#Translators: Go to outlook mail folder 1
+		description=_("Go to outlook mail folder 1"),
+		gesture="kb:alt+shift+i"
+	)
+	def script_GoToFolder1(self, gesture):	
+		GoToFolder(1)
+
+	@script(
+		#Translators: set outlook mail folder 2
+		description=_("Set outlook mail folder 2"),
+		gesture="kb:" 
+	)
+	def script_SetFolder2(self, gesture):	
+		SetFolder(2)
+	
+	@script(
+		#Translators: Go to outlook mail folder 2
+		description=_("Go to outlook mail folder 2"),
+		gesture="kb:"
+	)
+	def script_GoToFolder2(self, gesture):	
+		GoToFolder(2)
+
+	@script(
+		#Translators: set outlook mail folder 3
+		description=_("Set outlook mail folder 3"),
+		gesture="kb:" 
+	)
+	def script_SetFolder3(self, gesture):	
+		SetFolder(3)
+	
+	@script(
+		#Translators: Go to outlook mail folder 3
+		description=_("Go to outlook mail folder 3"),
+		gesture="kb:"
+	)
+	def script_GoToFolder3(self, gesture):	
+		GoToFolder(3)
+
+	@script(
+		#Translators: set outlook mail folder 4
+		description=_("Set outlook mail folder 4"),
+		gesture="kb:" 
+	)
+	def script_SetFolder4(self, gesture):	
+		SetFolder(4)
+	
+	@script(
+		#Translators: Go to outlook mail folder 4
+		description=_("Go to outlook mail folder 4"),
+		gesture="kb:"
+	)
+	def script_GoToFolder4(self, gesture):	
+		GoToFolder(4)
+
+	@script(
+		#Translators: set outlook mail folder 5
+		description=_("Set outlook mail folder 5"),
+		gesture="kb:" 
+	)
+	def script_SetFolder5(self, gesture):	
+		SetFolder(5)
+	
+	@script(
+		#Translators: Go to outlook mail folder 5
+		description=_("Go to outlook mail folder 5"),
+		gesture="kb:"
+	)
+	def script_GoToFolder5(self, gesture):	
+		GoToFolder(5)

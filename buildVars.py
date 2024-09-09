@@ -23,9 +23,27 @@ addon_info = {
 	"addon_summary": _("ROB enhancements"),
 	# Add-on description
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-	"addon_description": _("""support for various apps and some new functions."""),
+	"addon_description": _("""This extension adds new functionality to applications and provides new global help:
+
+If a Markdown file (*.md) is selected in Windows Explorer or total Commander:
+
+NVDA+Alt+Space, Views the file in the NVDA browser.
+NVDA+Alt+Shift+Space, saves the file in HTML format.
+
+In all browsers:
+
+NVDA+Ctrl+f4, show page URL, press twice, copy to clipboard.
+
+Microsoft Outlook 13 or later:
+
+Shift+Alt+j, Jumps to the next folder with unread emails below the Inbox folder.
+Shift+Ctrl+Alt+i, Saves the current folder as Folder 1
+Shift+Alt+i, Go to Folder 1
+
+A further 4 folders can be defined and jumped to. The folders can also be in another account. The gestures for this are still freely available."""
+),
 	# version
-	"addon_version": "2024.03.24",
+	"addon_version": "2024.09.09",
 	# Author(s)
 	"addon_author": "Rainer Brell <nvda@brell.net>",
 	# URL for the add-on documentation support
@@ -37,7 +55,7 @@ addon_info = {
 	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
 	"addon_minimumNVDAVersion": "2019.1",
 	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion": "2024.1",
+	"addon_lastTestedNVDAVersion": "2024.3",
 	# Add-on update channel (default is None, denoting stable releases,
 	# and for development releases, use "dev".)
 	# Do not change unless you know what you are doing!
