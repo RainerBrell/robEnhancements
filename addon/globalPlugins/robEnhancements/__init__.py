@@ -3,7 +3,7 @@
  ROB enhancements for NVDA 
  This file is covered by the GNU General Public License.
  See the file COPYING for more details.
- Copyright (C) 2024 Rainer Brell nvda@brell.net 
+ Copyright (C) 2025 Rainer Brell nvda@brell.net 
  For file access I used code from the NAO project
  Thanks for the permission: Alessandro Albano, Davide De Carne and Simone Dal Maso
 
@@ -16,10 +16,12 @@
  * Detects empty folders in Outlook
  * insert installtasks.py 
  * ready for NVDA 2024.1 
- 2024.09.09
- * Logged into the translation system
+ 2024.09.09:
  * nvda+alt+space: markdown file viewer 
  * nvda+shift+alt+space: Saves markdown file as html
+ 2025.08.05:
+ * delete explorer.py, no longer support for windows 10 explorer 
+ * ready for NVDA 2025 
  
 """
 
@@ -33,7 +35,6 @@ import sys
 import controlTypes
 import scriptHandler
 from .framework.storage import explorer
-from .myExplorer import * 
 from .myMarkdown import getHtmlText 
 import addonHandler
 addonHandler.initTranslation()

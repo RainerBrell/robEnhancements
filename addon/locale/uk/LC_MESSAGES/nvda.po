@@ -6,7 +6,7 @@ msgstr ""
 "PO-Revision-Date: 2025-08-09 07:45+0200\n"
 "Last-Translator: Copilot\n"
 "Language-Team: \n"
-"Language: es\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,18 +17,18 @@ msgstr ""
 #: addon\appModules\outlook.py:82
 #, python-brace-format
 msgid "Your Outlook version {Versionsnumber} is not supported."
-msgstr "Tu versión de Outlook {Versionsnumber} no es compatible."
+msgstr "Версія Outlook {Versionsnumber} не підтримується."
 
 #. Translators: Outlook mail Folder {nr} saved
 #: addon\appModules\outlook.py:104
 #, python-brace-format
 msgid "Folder {nr} saved as {folderPath}"
-msgstr "Carpeta {nr} guardada como {folderPath}"
+msgstr "Папку {nr} збережено як {folderPath}"
 
 #. Translators: Error saving folder
 #: addon\appModules\outlook.py:108
 msgid "Error saving folder"
-msgstr "Error al guardar la carpeta"
+msgstr "Помилка збереження папки"
 
 #. Translators: No folder set yet
 #: addon\appModules\outlook.py:123
@@ -36,39 +36,37 @@ msgstr "Error al guardar la carpeta"
 msgid ""
 "The folder {nr} has not been specified yet. Please specify a folder to jump "
 "to first."
-msgstr ""
-"La carpeta {nr} aún no ha sido especificada. Por favor, especifica una "
-"carpeta a la que ir primero."
+msgstr "Папку {nr} ще не вказано. Спочатку вкажіть папку для переходу."
 
 #. Translators: Go to the folder
 #: addon\appModules\outlook.py:147
 #, python-brace-format
 msgid "Go to the folder {entry}"
-msgstr "Ir a la carpeta {entry}"
+msgstr "Перейти до папки {entry}"
 
 #. tones.beep(100, 100)
 #. Translators: empty outlook folder
 #: addon\appModules\outlook.py:151 addon\appModules\outlook.py:220
 msgid "This folder is empty."
-msgstr "Esta carpeta está vacía."
+msgstr "Ця папка порожня."
 
 #. Translators: Can not found the Folder
 #: addon\appModules\outlook.py:157
 #, python-brace-format
 msgid "Can not found the folder {folderList}"
-msgstr "No se puede encontrar la carpeta {folderList}"
+msgstr "Не вдалося знайти папку {folderList}"
 
 #. Translators: Can not found the outlook account
 #: addon\appModules\outlook.py:161
 #, python-brace-format
 msgid "Can not found the account: {account}"
-msgstr "No se puede encontrar la cuenta: {account}"
+msgstr "Не вдалося знайти обліковий запис: {account}"
 
 #. Translators: Error, cannot go to the specified path.
 #: addon\appModules\outlook.py:165
 #, python-brace-format
 msgid "Error, cannot go to the specified path {newPath}."
-msgstr "Error, no se puede acceder a la ruta especificada {newPath}."
+msgstr "Помилка, неможливо перейти за вказаним шляхом {newPath}."
 
 #. Translators: Name of the category for the keyboard mapping dialog
 #. Add-on summary, usually the user visible name of the addon.
@@ -77,152 +75,148 @@ msgstr "Error, no se puede acceder a la ruta especificada {newPath}."
 #: addon\appModules\outlook.py:198
 #: addon\globalPlugins\robEnhancements\__init__.py:75 buildVars.py:23
 msgid "ROB enhancements"
-msgstr "Mejoras ROB"
+msgstr "Покращення ROB"
 
 #. Translators: Jumps to the next Outlook folder with unread mails below the inbox.
 #: addon\appModules\outlook.py:224
 msgid "Jumps to the next Outlook folder with unread mails below the inbox."
 msgstr ""
-"Salta a la siguiente carpeta de Outlook con correos no leídos debajo de la "
-"bandeja de entrada."
+"Переходить до наступної папки Outlook з непрочитаними листами нижче вхідних."
 
 #. Translators: unread mails found in folder
 #: addon\appModules\outlook.py:245
 #, python-brace-format
 msgid "{count} mails in the folder {folder}"
-msgstr "{count} correos en la carpeta {folder}"
+msgstr "{count} листів у папці {folder}"
 
 #. Translators: No unread mails found
 #: addon\appModules\outlook.py:250
 msgid "No unread mails found"
-msgstr "No se encontraron correos no leídos"
+msgstr "Непрочитаних листів не знайдено"
 
 #. Translators: if the outlook object modell is not available
 #: addon\appModules\outlook.py:253
 msgid "Outlook object  not available - please contact the addon developer"
-msgstr ""
-"Objeto de Outlook no disponible - por favor contacta al desarrollador del "
-"complemento"
+msgstr "Об'єкт Outlook недоступний — зверніться до розробника додатку"
 
 #. Translators: set outlook mail folder 1
 #: addon\appModules\outlook.py:260
 msgid "Set outlook mail folder 1"
-msgstr "Establecer carpeta de correo de Outlook 1"
+msgstr "Встановити папку Outlook 1"
 
 #. Translators: Go to outlook mail folder 1
 #: addon\appModules\outlook.py:268
 msgid "Go to outlook mail folder 1"
-msgstr "Ir a la carpeta de correo de Outlook 1"
+msgstr "Перейти до папки Outlook 1"
 
 #. Translators: set outlook mail folder 2
 #: addon\appModules\outlook.py:276
 msgid "Set outlook mail folder 2"
-msgstr "Establecer carpeta de correo de Outlook 2"
+msgstr "Встановити папку Outlook 2"
 
 #. Translators: Go to outlook mail folder 2
 #: addon\appModules\outlook.py:284
 msgid "Go to outlook mail folder 2"
-msgstr "Ir a la carpeta de correo de Outlook 2"
+msgstr "Перейти до папки Outlook 2"
 
 #. Translators: set outlook mail folder 3
 #: addon\appModules\outlook.py:292
 msgid "Set outlook mail folder 3"
-msgstr "Establecer carpeta de correo de Outlook 3"
+msgstr "Встановити папку Outlook 3"
 
 #. Translators: Go to outlook mail folder 3
 #: addon\appModules\outlook.py:300
 msgid "Go to outlook mail folder 3"
-msgstr "Ir a la carpeta de correo de Outlook 3"
+msgstr "Перейти до папки Outlook 3"
 
 #. Translators: set outlook mail folder 4
 #: addon\appModules\outlook.py:308
 msgid "Set outlook mail folder 4"
-msgstr "Establecer carpeta de correo de Outlook 4"
+msgstr "Встановити папку Outlook 4"
 
 #. Translators: Go to outlook mail folder 4
 #: addon\appModules\outlook.py:316
 msgid "Go to outlook mail folder 4"
-msgstr "Ir a la carpeta de correo de Outlook 4"
+msgstr "Перейти до папки Outlook 4"
 
 #. Translators: set outlook mail folder 5
 #: addon\appModules\outlook.py:324
 msgid "Set outlook mail folder 5"
-msgstr "Establecer carpeta de correo de Outlook 5"
+msgstr "Встановити папку Outlook 5"
 
 #. Translators: Go to outlook mail folder 5
 #: addon\appModules\outlook.py:332
 msgid "Go to outlook mail folder 5"
-msgstr "Ir a la carpeta de correo de Outlook 5"
+msgstr "Перейти до папки Outlook 5"
 
 #. Translators: Shows the current URL of the document, press twice = copies to the clipboard.
 #: addon\globalPlugins\robEnhancements\__init__.py:83
 msgid "Show document URL, press twice copies to clipboard."
-msgstr ""
-"Mostrar la URL del documento, presiona dos veces para copiar al portapapeles."
+msgstr "Показати URL документа, натисніть двічі для копіювання в буфер обміну."
 
 #. Translators: URL copied to clipboard
 #: addon\globalPlugins\robEnhancements\__init__.py:95
 #, python-brace-format
 msgid "copied to clipboard {URL}."
-msgstr "copiado al portapapeles {URL}."
+msgstr "скопійовано до буфера обміну: {URL}."
 
 #. Translators: No URL found in browser document
 #: addon\globalPlugins\robEnhancements\__init__.py:98
 msgid "Document URL not found."
-msgstr "No se encontró la URL del documento."
+msgstr "URL документа не знайдено."
 
 #. Translators: The user is not in a browser.
 #: addon\globalPlugins\robEnhancements\__init__.py:101
 msgid "No browser window found."
-msgstr "No se encontró ninguna ventana del navegador."
+msgstr "Вікно браузера не знайдено."
 
 #. Translators: Shows the current markdown file in the NVDA browser
 #: addon\globalPlugins\robEnhancements\__init__.py:105
 msgid "Shows the current markdown file in the NVDA browser"
-msgstr "Muestra el archivo markdown actual en el navegador NVDA"
+msgstr "Показує поточний файл Markdown у браузері NVDA"
 
 #. Translators: it is not a markdown file
 #: addon\globalPlugins\robEnhancements\__init__.py:114
 #: addon\globalPlugins\robEnhancements\__init__.py:141
 #, python-brace-format
 msgid "{markdownFile} is not a Markdown file"
-msgstr "{markdownFile} no es un archivo Markdown"
+msgstr "{markdownFile} не є файлом Markdown"
 
 #. Translators: No markdown file selected
 #. Translators: No markdown file selekted
 #: addon\globalPlugins\robEnhancements\__init__.py:118
 #: addon\globalPlugins\robEnhancements\__init__.py:145
 msgid "No markdown file selected"
-msgstr "No se seleccionó ningún archivo markdown"
+msgstr "Файл Markdown не вибрано"
 
 #. translators: HTML viewer title
 #: addon\globalPlugins\robEnhancements\__init__.py:127
 #, python-brace-format
 msgid "Content of {markdownFile} in HTML"
-msgstr "Contenido de {markdownFile} en HTML"
+msgstr "Вміст {markdownFile} у форматі HTML"
 
 #. Translators: Saves the selected markdown file as an HTML file
 #: addon\globalPlugins\robEnhancements\__init__.py:133
 msgid "Saves the selected markdown file as an HTML file"
-msgstr "Guarda el archivo markdown seleccionado como archivo HTML"
+msgstr "Зберігає вибраний файл Markdown як HTML"
 
 #. Translators: No access to the folder
 #: addon\globalPlugins\robEnhancements\__init__.py:152
 #, python-brace-format
 msgid "No access to the folder {currentPath}"
-msgstr "Sin acceso a la carpeta {currentPath}"
+msgstr "Немає доступу до папки {currentPath}"
 
 #. Translators: The HTML file could not be created
 #: addon\globalPlugins\robEnhancements\__init__.py:161
 #, python-brace-format
 msgid "The HTML file {htmlFile} could not be created."
-msgstr "No se pudo crear el archivo HTML {htmlFile}."
+msgstr "Не вдалося створити HTML-файл {htmlFile}."
 
 #. Translators: The HTML file was written successfully
 #: addon\globalPlugins\robEnhancements\__init__.py:164
 #, python-brace-format
 msgid "The HTML file {htmlFile} was written successfully"
-msgstr "El archivo HTML {htmlFile} se escribió correctamente"
+msgstr "HTML-файл {htmlFile} успішно створено"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -251,29 +245,26 @@ msgid ""
 "A further 4 folders can be defined and jumped to. The folders can also be in "
 "another account. The gestures for this are still freely available."
 msgstr ""
-"Esta extensión añade nuevas funcionalidades a las aplicaciones y proporciona "
-"nueva ayuda global:\n"
+"Це розширення додає нові функції до програм і надає глобальну довідку:\n"
 "\n"
-"Si se selecciona un archivo Markdown (*.md) en el Explorador de Windows o "
-"Total Commander:\n"
+"Якщо у Провіднику Windows або Total Commander вибрано файл Markdown (*.md):\n"
 "\n"
-"NVDA+Alt+Espacio, muestra el archivo en el navegador NVDA.\n"
-"NVDA+Alt+Mayús+Espacio, guarda el archivo en formato HTML.\n"
+"NVDA+Alt+Пробіл — перегляд файлу у браузері NVDA.\n"
+"NVDA+Alt+Shift+Пробіл — збереження файлу у форматі HTML.\n"
 "\n"
-"En todos los navegadores:\n"
+"У всіх браузерах:\n"
 "\n"
-"NVDA+Ctrl+F4, muestra la URL de la página, presiona dos veces para copiar al "
-"portapapeles.\n"
+"NVDA+Ctrl+F4 — показати URL сторінки, натисніть двічі для копіювання.\n"
 "\n"
-"Microsoft Outlook 13 o posterior:\n"
+"Microsoft Outlook 13 або новіший:\n"
 "\n"
-"Shift+Alt+J, salta a la siguiente carpeta con correos no leídos debajo de la "
-"bandeja de entrada.\n"
-"Shift+Ctrl+Alt+I, guarda la carpeta actual como Carpeta 1\n"
-"Shift+Alt+I, ir a la Carpeta 1\n"
+"Shift+Alt+J — перейти до наступної папки з непрочитаними листами нижче "
+"вхідних.\n"
+"Shift+Ctrl+Alt+I — зберегти поточну папку як Папку 1\n"
+"Shift+Alt+I — перейти до Папки 1\n"
 "\n"
-"Se pueden definir y acceder a otras 4 carpetas. Las carpetas también pueden "
-"estar en otra cuenta. Los gestos para esto siguen estando disponibles."
+"Можна визначити ще 4 папки та переходити до них. Папки можуть бути в іншому "
+"обліковому записі. Жести залишаються доступними."
 
 #~ msgid "Test"
-#~ msgstr "Prueba"
+#~ msgstr "Тест"

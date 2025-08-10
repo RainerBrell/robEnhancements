@@ -4,8 +4,12 @@
  outlook sub add-on 
  This file is covered by the GNU General Public License.
  See the file COPYING for more details.
- Copyright (C) 2024 Rainer Brell nvda@brell.net 
- last Modify: September 2024 
+ Copyright (C) 2024-2025 Rainer Brell nvda@brell.net 
+ ********** 
+ modified 2025.08.07:  
+ - Search below the current inbox for folders with unread emails
+ - 4 folders can be defined and targeted, including in other mail accounts
+ modified 2024.09.01: 
  - GoToFolders 
 """
 
@@ -17,6 +21,7 @@ from NVDAObjects.IAccessible import IAccessible
 import controlTypes
 import textInfos 
 import speech 
+import braille 
 import config
 import tones
 import os 
@@ -29,8 +34,9 @@ import addonHandler
 
 addonHandler.initTranslation()
 
-AddOnName = addonHandler.getCodeAddon().manifest['name']
+AddOnName   = addonHandler.getCodeAddon().manifest['name']
 sectionName = AddOnName
+inboxNames  = ["inbox"]
 
 def initConfiguration():
 	confspec = { 
@@ -56,6 +62,18 @@ def setINI(key, value):
 	except:
 		pass 
 		
+def brailleout_permanently(text):
+	#braille.BrailleBuffer.clear(braille.Region)
+	showmessage = config.conf["braille"]["showMessages"]
+	config.conf["braille"]["showMessages"] = braille.ShowMessages.SHOW_INDEFINITELY
+	braille.handler.message(text)
+	config.conf["braille"]["showMessages"] = showmessage
+	
+def my_out(s):
+	#tones.beep(200, 200)
+	brailleout_permanently(s) 
+	speech.speakMessage(s)
+
 def isValidVersion():
 	obj = api.getFocusObject()
 	appVersionMajor = int(obj.appModule.productVersion.split('.')[0])
@@ -127,7 +145,10 @@ def GoToFolder(nr):
 								if index == len(folderList):
 									# Translators: Go to the folder
 									msg = _("Go to the folder {entry}").format(entry=entry)
+									FolderCount = folder.Items.Count 
 									ui.message(msg) 
+									if FolderCount == 0: 
+										callLater(500, lambda: my_out(_("This folder is empty.")))
 									dom.ActiveExplorer().CurrentFolder = folder 
 									return 
 						currentFolder = newFolder
@@ -141,9 +162,36 @@ def GoToFolder(nr):
 				ui.message(msg) 
 	except: 
 		# Translators: Error, cannot go to the specified path.
-		msg = _("Error, cannot go to the specified path {newPath}.").foramt(newPath=newPath)
+		msg = _("Error, cannot go to the specified path {newPath}.").format(newPath=newPath)
 		ui.message(msg) 
+		
+def get_default_inbox_name():
+	try:
+		dom = api.getFocusObject().appModule.nativeOm
+		if dom: 
+			ns = dom.GetNamespace("MAPI")
+			return  ns.GetDefaultFolder(6).Name .lower()
+	except:
+		return 
 
+def get_current_inbox_folder():
+	try:
+		dom = api.getFocusObject().appModule.nativeOm
+		if dom: 
+			NameSpace           = dom.GetNamespace("MAPI")
+			CurrentFolderpath   = dom.ActiveExplorer().CurrentFolder.folderPath
+			CurrentExplorerName = CurrentFolderpath  .split('\\')[2]
+			for NameSpaceFolder in NameSpace.folders:
+				if NameSpaceFolder.name == CurrentExplorerName:
+					for folder in NameSpaceFolder.folders:
+						if folder.name.lower() in inboxNames: 
+							return folder 
+			return
+		else:
+			return
+	except:
+		return 
+	
 class AppModule(outlook.AppModule):
 
 	# Translators: Name of the category for the keyboard mapping dialog 
@@ -170,34 +218,36 @@ class AppModule(outlook.AppModule):
 				#tones.beep(100, 100)
 				# Translators: empty outlook folder 
 				ui.message(_("This folder is empty."))
-
+  
 	@script(
 		#Translators: Jumps to the next Outlook folder with unread mails below the inbox.
 		description=_("Jumps to the next Outlook folder with unread mails below the inbox."),
 		gesture="kb:alt+shift+j"
 	)
 	def script_JumpToNextFolderWithUnreadItems(self, gesture):	
-		if not isValidVersion(): 
-			return 
+		if not isValidVersion(): return 
 		try:
 			dom = api.getFocusObject().appModule.nativeOm
 			UnreadCount = 0 
 			if dom: 
-				folderName = dom.ActiveExplorer().CurrentFolder.Name
-				myInbox = dom.GetNamespace("MAPI").GetDefaultFolder(6)
-				#myInbox = dom.GetNamespace("MAPI").Folders("rainer@brell.net").Folders("Posteingang")
-				Folders = myInbox.Folders
-				FoldersCount = Folders.Count 
-				for Folder in Folders:
-					UnreadCount = Folder.UnReadItemCount
-					if UnreadCount > 0:
-						# Translators: unread mails found in folder
-						msg = _("{count} mails in the folder {folder}").format(count=UnreadCount, folder=Folder.Name)
-						ui.message(msg)
-						dom.ActiveExplorer().CurrentFolder = Folder 
-						return
-				# Translators: No unread mails found 
-				ui.message(_("No unread mails found"))
+				inbox = get_default_inbox_name()
+				if inbox:
+					if not inbox in inboxNames:
+						inboxNames.append(inbox)
+				InboxFolder = get_current_inbox_folder() 
+				if InboxFolder:
+					#Folders = inbox.Folders
+					#FoldersCount = Folders.Count 
+					for Folder in InboxFolder.Folders:
+						UnreadCount = Folder.UnReadItemCount
+						if UnreadCount > 0:
+							# Translators: unread mails found in folder
+							msg = _("{count} mails in the folder {folder}").format(count=UnreadCount, folder=Folder.Name)
+							ui.message(msg)
+							dom.ActiveExplorer().CurrentFolder = Folder 
+							return
+					# Translators: No unread mails found 
+					ui.message(_("No unread mails found"))
 			else:
 				# Translators: if the outlook object modell is not available
 				out = _("Outlook object  not available - please contact the addon developer")
@@ -206,7 +256,7 @@ class AppModule(outlook.AppModule):
 			ui.message("Error in jump function")
 
 	@script(
-		#Translators: set outlook mail folder 1
+ 		#Translators: set outlook mail folder 1
 		description=_("Set outlook mail folder 1"),
 		gesture="kb:alt+control+shift+i" 
 	)
@@ -284,3 +334,11 @@ class AppModule(outlook.AppModule):
 	)
 	def script_GoToFolder5(self, gesture):	
 		GoToFolder(5)
+"""
+	@script(
+		description=_("Test"),
+		gesture="kb:alt+l"
+	)
+	def script_test(self, gesture):	
+		pass 
+"""

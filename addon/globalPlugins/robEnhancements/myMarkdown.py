@@ -3,7 +3,7 @@
  ROB enhancements for NVDA - Module myMarkdown 
  This file is covered by the GNU General Public License.
  See the file COPYING for more details.
- Copyright (C) 2024 Rainer Brell nvda@brell.net 
+ Copyright (C) 2025 Rainer Brell nvda@brell.net 
 """
  
 import globalPluginHandler
@@ -23,6 +23,3 @@ def getHtmlText(MarkdownText):
 		return MarkdownToHtml(MarkdownText)
 	except:
 		return None 
-
-class GlobalPlugin(globalPluginHandler.GlobalPlugin):
-	pass 
