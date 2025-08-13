@@ -43,7 +43,7 @@ Shift+Alt+i, Go to Folder 1
 A further 4 folders can be defined and jumped to. The folders can also be in another account. The gestures for this are still freely available."""
 ),
 	# version
-	"addon_version": "2025.08.10",
+	"addon_version": "2025.08.13",
 	# Author(s)
 	"addon_author": "Rainer Brell <nvda@brell.net>",
 	# URL for the add-on documentation support
