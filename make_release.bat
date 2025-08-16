@@ -1,13 +1,13 @@
 echo off
 cls
 setlocal enabledelayedexpansion
-rem 2025.08.13: macht ein Comit, danach ein tag und pusht es nach github 
+rem 2025.08.16: macht ein Comit, danach ein tag und pusht es nach github 
 
 rem Eingabe der Commit-Nachricht
 set /p commitMsg=Gib die Commit-Nachricht ein: 
 
 rem Eingabe der Versionsnummer (Tag)
-set /p version=Gib die Versionsnummer ein (z.B. v1.0.0): 
+set /p version=Gib die Versionsnummer ein (z.B. 2025.08.16s): 
 
 rem Eingabe des Release-Titels
 set /p releaseTitle=Gib den Release-Titel ein: 
@@ -39,8 +39,8 @@ git push origin %version%
 pause 
 echo.
 echo === Release wird auf GitHub erstellt ===
-gh release create %version% "robenhancements%version%.nvda-addon" --title "%releaseTitle%" --notes "%releaseNotes%"
+gh release create %version% "robEnhancements-%version%.nvda-addon" --title "%releaseTitle%" --notes "%releaseNotes%"
 pause 
 echo.
-echo Release erfolgreich erstellt: %version%
+echo Fertig: %version%
 pause
