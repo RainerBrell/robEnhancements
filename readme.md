@@ -15,6 +15,10 @@ If a Markdown file (*.md) is selected in Windows Explorer or total Commander:
 
 * Use Ctrl+NVDA+f4 to show page URL, press twice, copy to clipboard.
 
+## Generally
+
+* NVDA+Shift+v, shows program name, 32/64bit, CPU usagee, version, product name
+
 ## Microsoft Outlook in version 13 or higher
 
 * Empty folders are usually recognized.

@@ -34,6 +34,10 @@ In all browsers:
 
 NVDA+Ctrl+f4, show page URL, press twice, copy to clipboard.
 
+Generally:
+
+NVDA+Shift+v, shows program name, 32/64bit, CPU usagee, version, product name
+
 Microsoft Outlook 13 or later:
 
 Shift+Alt+j, Jumps to the next folder with unread emails below the Inbox folder.
@@ -43,7 +47,7 @@ Shift+Alt+i, Go to Folder 1
 A further 4 folders can be defined and jumped to. The folders can also be in another account. The gestures for this are still freely available."""
 ),
 	# version
-	"addon_version": "2025.08.16",
+	"addon_version": "2025.09.01",
 	# Author(s)
 	"addon_author": "Rainer Brell <nvda@brell.net>",
 	# URL for the add-on documentation support

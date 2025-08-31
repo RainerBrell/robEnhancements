@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'robEnhancements' '2025.08.09'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2025-08-10 15:02+0200\n"
+"POT-Creation-Date: 2025-08-31 20:47+0200\n"
 "PO-Revision-Date: 2025-08-09 07:45+0200\n"
 "Last-Translator: Copilot\n"
 "Language-Team: \n"
@@ -75,7 +75,7 @@ msgstr "Error, no se puede acceder a la ruta especificada {newPath}."
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information found in Add-ons Manager.
 #: addon\appModules\outlook.py:198
-#: addon\globalPlugins\robEnhancements\__init__.py:75 buildVars.py:23
+#: addon\globalPlugins\robEnhancements\__init__.py:129 buildVars.py:23
 msgid "ROB enhancements"
 msgstr "Mejoras ROB"
 
@@ -154,79 +154,111 @@ msgstr "Establecer carpeta de correo de Outlook 5"
 msgid "Go to outlook mail folder 5"
 msgstr "Ir a la carpeta de correo de Outlook 5"
 
+#. Translators: 64 bit process
+#: addon\globalPlugins\robEnhancements\__init__.py:100
+msgid "64bit"
+msgstr ""
+
+#. Translators: 32 bit process
+#: addon\globalPlugins\robEnhancements\__init__.py:103
+msgid "32bit"
+msgstr ""
+
+#. Translators: message  copied to clipboard
+#: addon\globalPlugins\robEnhancements\__init__.py:125
+#, fuzzy
+msgid "Copied into the clipboard."
+msgstr "copiado al portapapeles {URL}."
+
 #. Translators: Shows the current URL of the document, press twice = copies to the clipboard.
-#: addon\globalPlugins\robEnhancements\__init__.py:83
+#: addon\globalPlugins\robEnhancements\__init__.py:137
 msgid "Show document URL, press twice copies to clipboard."
 msgstr ""
 "Mostrar la URL del documento, presiona dos veces para copiar al portapapeles."
 
 #. Translators: URL copied to clipboard
-#: addon\globalPlugins\robEnhancements\__init__.py:95
+#: addon\globalPlugins\robEnhancements\__init__.py:149
 #, python-brace-format
 msgid "copied to clipboard {URL}."
 msgstr "copiado al portapapeles {URL}."
 
 #. Translators: No URL found in browser document
-#: addon\globalPlugins\robEnhancements\__init__.py:98
+#: addon\globalPlugins\robEnhancements\__init__.py:152
 msgid "Document URL not found."
 msgstr "No se encontró la URL del documento."
 
 #. Translators: The user is not in a browser.
-#: addon\globalPlugins\robEnhancements\__init__.py:101
+#: addon\globalPlugins\robEnhancements\__init__.py:155
 msgid "No browser window found."
 msgstr "No se encontró ninguna ventana del navegador."
 
 #. Translators: Shows the current markdown file in the NVDA browser
-#: addon\globalPlugins\robEnhancements\__init__.py:105
+#: addon\globalPlugins\robEnhancements\__init__.py:159
 msgid "Shows the current markdown file in the NVDA browser"
 msgstr "Muestra el archivo markdown actual en el navegador NVDA"
 
 #. Translators: it is not a markdown file
-#: addon\globalPlugins\robEnhancements\__init__.py:114
-#: addon\globalPlugins\robEnhancements\__init__.py:141
+#: addon\globalPlugins\robEnhancements\__init__.py:168
+#: addon\globalPlugins\robEnhancements\__init__.py:195
 #, python-brace-format
 msgid "{markdownFile} is not a Markdown file"
 msgstr "{markdownFile} no es un archivo Markdown"
 
 #. Translators: No markdown file selected
 #. Translators: No markdown file selekted
-#: addon\globalPlugins\robEnhancements\__init__.py:118
-#: addon\globalPlugins\robEnhancements\__init__.py:145
+#: addon\globalPlugins\robEnhancements\__init__.py:172
+#: addon\globalPlugins\robEnhancements\__init__.py:199
 msgid "No markdown file selected"
 msgstr "No se seleccionó ningún archivo markdown"
 
 #. translators: HTML viewer title
-#: addon\globalPlugins\robEnhancements\__init__.py:127
+#: addon\globalPlugins\robEnhancements\__init__.py:181
 #, python-brace-format
 msgid "Content of {markdownFile} in HTML"
 msgstr "Contenido de {markdownFile} en HTML"
 
 #. Translators: Saves the selected markdown file as an HTML file
-#: addon\globalPlugins\robEnhancements\__init__.py:133
+#: addon\globalPlugins\robEnhancements\__init__.py:187
 msgid "Saves the selected markdown file as an HTML file"
 msgstr "Guarda el archivo markdown seleccionado como archivo HTML"
 
 #. Translators: No access to the folder
-#: addon\globalPlugins\robEnhancements\__init__.py:152
+#: addon\globalPlugins\robEnhancements\__init__.py:206
 #, python-brace-format
 msgid "No access to the folder {currentPath}"
 msgstr "Sin acceso a la carpeta {currentPath}"
 
 #. Translators: The HTML file could not be created
-#: addon\globalPlugins\robEnhancements\__init__.py:161
+#: addon\globalPlugins\robEnhancements\__init__.py:215
 #, python-brace-format
 msgid "The HTML file {htmlFile} could not be created."
 msgstr "No se pudo crear el archivo HTML {htmlFile}."
 
 #. Translators: The HTML file was written successfully
-#: addon\globalPlugins\robEnhancements\__init__.py:164
+#: addon\globalPlugins\robEnhancements\__init__.py:218
 #, python-brace-format
 msgid "The HTML file {htmlFile} was written successfully"
 msgstr "El archivo HTML {htmlFile} se escribió correctamente"
 
+#. Translators: Name and current CPU usage of the process
+#: addon\globalPlugins\robEnhancements\__init__.py:223
+msgid "Shows the current program Name and CPU usage."
+msgstr ""
+
+#. Translators: Wait 1 second to determine the CPU usage
+#: addon\globalPlugins\robEnhancements\__init__.py:230
+msgid "Please wait..."
+msgstr ""
+
+#: addon\globalPlugins\robEnhancements\__init__.py:240
+#, python-brace-format
+msgid "{appname} ({is64bit}, {cpu}%) {version} {productname}"
+msgstr ""
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 #: buildVars.py:26
+#, fuzzy
 msgid ""
 "This extension adds new functionality to applications and provides new "
 "global help:\n"
@@ -240,6 +272,11 @@ msgid ""
 "In all browsers:\n"
 "\n"
 "NVDA+Ctrl+f4, show page URL, press twice, copy to clipboard.\n"
+"\n"
+"Generally:\n"
+"\n"
+"NVDA+Shift+v, shows program name, 32/64bit, CPU usagee, version, product "
+"name\n"
 "\n"
 "Microsoft Outlook 13 or later:\n"
 "\n"

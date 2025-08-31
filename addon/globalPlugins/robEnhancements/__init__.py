@@ -3,7 +3,7 @@
  ROB enhancements for NVDA 
  This file is covered by the GNU General Public License.
  See the file COPYING for more details.
- Copyright (C) 2025 Rainer Brell nvda@brell.net 
+ Copyright (C) 2024-2025 Rainer Brell nvda@brell.net 
  For file access I used code from the NAO project
  Thanks for the permission: Alessandro Albano, Davide De Carne and Simone Dal Maso
 
@@ -22,17 +22,21 @@
  2025.08.05:
  * delete explorer.py, no longer support for windows 10 explorer 
  * ready for NVDA 2025 
+ 2025.09.01:
+ * nvda+shift+v: Taskname, 32/64bit, CPU usage, version, productname 
  
 """
 
 import globalPluginHandler
 from scriptHandler import script
+from core import callLater 
 import ui
 from tones import beep 
 import api
 import os 
 import sys 
 import controlTypes
+import psutil
 import scriptHandler
 from .framework.storage import explorer
 from .myMarkdown import getHtmlText 
@@ -69,7 +73,57 @@ def getCurrentDocumentURL():
 	except:
 		return None 
 	return URL 
+	
+def get_cpu_usage(pid):
+	try:
+		process = psutil.Process(pid)
+		# The measurement initializes the first query
+		process.cpu_percent(interval=None)
+		# Short break to enable a sensible measurement
+		cpu_usage = process.cpu_percent(interval=1.0)
+		return cpu_usage
+	except psutil.NoSuchProcess:
+		return f"no process with pid {pid}."
+	except Exception as e:
+		return f"error: {e}"
 
+def get_process_name(focus):
+	try:
+		return focus.appModule.appName
+	except Exception as e:
+		return f"Error: {e}"
+		
+def get_64_32_bit(focus):
+	try:
+		if focus.appModule.is64BitProcess:
+			# Translators: 64 bit process 
+			return _("64bit")
+		else:
+			# Translators: 32 bit process 
+			return _("32bit")
+	except Exception as e:
+			return f"Error: {e}"
+			
+def get_product_name(focus):
+	try:
+		return focus.appModule.productName
+	except Exception as e:
+		return f"Error: {e}"
+		
+
+		
+def get_product_version(focus):
+	try:
+		return focus.appModule.productVersion
+	except Exception as e:
+		return f"Error: {e}"
+		
+def copy_to_clip(msg):
+	beep(400, 400)
+	api.copyToClip(msg)
+	# Translators: message  copied to clipboard 
+	ui.message(_("Copied into the clipboard."))
+	
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	# Translators: Name of the category for the keyboard mapping dialog
 	scriptCategory = _("ROB enhancements")
@@ -164,4 +218,36 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		msg = _("The HTML file {htmlFile} was written successfully").format(htmlFile=htmlFile)
 		ui.message(msg) 
 
-
+	@script(
+		# Translators: Name and current CPU usage of the process
+		description=_("Shows the current program Name and CPU usage."),
+		gesture="kb:NVDA+shift+v"
+	)
+	def script_show_current_name_cpu_task(self, gesture):
+		focus = api.getFocusObject()
+		if focus:
+			# Translators: Wait 1 second to determine the CPU usage 
+			ui.message(_("Please wait..."))
+			pid         = focus.processID
+			cpu         = get_cpu_usage(pid)
+			appname     = get_process_name(focus).lower()
+			is64bit     = get_64_32_bit(focus)
+			productname = get_product_name(focus).lower()
+			version     = get_product_version(focus)
+			if appname == productname: 
+				productname = ""
+			msg: str = _(
+				"{appname} ({is64bit}, {cpu}%) {version} {productname}"
+			).format(
+				appname=appname, 
+				is64bit=is64bit, 
+				cpu=cpu, 
+				productname=productname, 
+				version=version
+			)
+			if scriptHandler.getLastScriptRepeatCount() == 0:
+				ui.message(msg)
+			elif scriptHandler.getLastScriptRepeatCount() == 1:
+				callLater(1000, lambda: copy_to_clip(msg))
+		else:
+			ui.message("No focus found")

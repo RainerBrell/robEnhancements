@@ -4,6 +4,7 @@ addon/doc/en/
 *.html
 manifest.ini
 *.mo
+*.bat
 *.pot
 *.py[co]
 *.nvda-addon
