@@ -47,7 +47,7 @@ Shift+Alt+i, Go to Folder 1
 A further 4 folders can be defined and jumped to. The folders can also be in another account. The gestures for this are still freely available."""
 ),
 	# version
-	"addon_version": "2025.09.01",
+	"addon_version": "2025.11.01",
 	# Author(s)
 	"addon_author": "Rainer Brell <nvda@brell.net>",
 	# URL for the add-on documentation support
@@ -59,7 +59,7 @@ A further 4 folders can be defined and jumped to. The folders can also be in ano
 	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
 	"addon_minimumNVDAVersion": "2019.1",
 	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion": "2025.2",
+	"addon_lastTestedNVDAVersion": "2025.3",
 	# Add-on update channel (default is None, denoting stable releases,
 	# and for development releases, use "dev".)
 	# Do not change unless you know what you are doing!

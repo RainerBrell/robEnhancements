@@ -24,6 +24,8 @@
  * ready for NVDA 2025 
  2025.09.01:
  * nvda+shift+v: Taskname, 32/64bit, CPU usage, version, productname 
+ 2025.10.14:
+ * little bugfix 
  
 """
 
@@ -40,6 +42,7 @@ import psutil
 import scriptHandler
 from .framework.storage import explorer
 from .myMarkdown import getHtmlText 
+from .skipTranslation import translate
 import addonHandler
 addonHandler.initTranslation()
 
@@ -106,7 +109,11 @@ def get_64_32_bit(focus):
 			
 def get_product_name(focus):
 	try:
-		return focus.appModule.productName
+		pn = focus.appModule.productName
+		if pn:
+			return pn 
+		else: 
+			return translate("unknown")
 	except Exception as e:
 		return f"Error: {e}"
 		
@@ -230,9 +237,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Please wait..."))
 			pid         = focus.processID
 			cpu         = get_cpu_usage(pid)
-			appname     = get_process_name(focus).lower()
+			appname     = get_process_name(focus)
 			is64bit     = get_64_32_bit(focus)
-			productname = get_product_name(focus).lower()
+			productname = get_product_name(focus)
 			version     = get_product_version(focus)
 			if appname == productname: 
 				productname = ""
