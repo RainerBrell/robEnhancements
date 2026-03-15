@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'robEnhancements' '2025.08.09'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2025-11-01 11:56+0100\n"
+"POT-Creation-Date: 2026-03-15 14:35+0100\n"
 "PO-Revision-Date: 2025-08-09 07:45+0200\n"
 "Last-Translator: Copilot\n"
 "Language-Team: \n"
@@ -71,11 +71,11 @@ msgid "Error, cannot go to the specified path {newPath}."
 msgstr "Lỗi, không thể truy cập đường dẫn được chỉ định {newPath}."
 
 #. Translators: Name of the category for the keyboard mapping dialog
-#. Add-on summary, usually the user visible name of the addon.
-#. Translators: Summary for this add-on
-#. to be shown on installation and add-on information found in Add-ons Manager.
+#. Add-on summary/title, usually the user visible name of the add-on
+#. Translators: Summary/title for this add-on
+#. to be shown on installation and add-on information found in add-on store
 #: addon\appModules\outlook.py:198
-#: addon\globalPlugins\robEnhancements\__init__.py:136 buildVars.py:23
+#: addon\globalPlugins\robEnhancements\__init__.py:136 buildVars.py:21
 msgid "ROB enhancements"
 msgstr "Các cải tiến ROB"
 
@@ -254,8 +254,8 @@ msgid "{appname} ({is64bit}, {cpu}%) {version} {productname}"
 msgstr ""
 
 #. Add-on description
-#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-#: buildVars.py:26
+#. Translators: Long description to be shown for this add-on on add-on information from add-on store
+#: buildVars.py:24
 #, fuzzy
 msgid ""
 "This extension adds new functionality to applications and provides new "
@@ -308,6 +308,14 @@ msgstr ""
 "\n"
 "Có thể xác định thêm 4 thư mục và chuyển đến chúng. Các thư mục cũng có thể "
 "thuộc tài khoản khác. Các tổ hợp phím cho việc này vẫn có sẵn."
+
+#. Brief changelog for this version
+#. Translators: what's new content for the add-on version to be shown in the add-on store
+#: buildVars.py:51
+msgid ""
+"* Version: 2026.03.15\n"
+"- Prepared for NVDA 2026.1"
+msgstr ""
 
 #~ msgid "Test"
 #~ msgstr "Kiểm tra"

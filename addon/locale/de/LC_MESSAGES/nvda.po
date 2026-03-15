@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2025-11-01 11:56+0100\n"
-"PO-Revision-Date: 2025-11-01 12:00+0100\n"
+"POT-Creation-Date: 2026-03-15 14:35+0100\n"
+"PO-Revision-Date: 2026-03-15 14:42+0100\n"
 "Last-Translator: Rainer Brell <nvda@brell.net>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #. outlook 2010
 #. Translators: unsupported Outlook version
@@ -77,11 +77,11 @@ msgid "Error, cannot go to the specified path {newPath}."
 msgstr "Fehler, der angegebene Pfad {newPath} kann nicht aufgerufen werden1."
 
 #. Translators: Name of the category for the keyboard mapping dialog
-#. Add-on summary, usually the user visible name of the addon.
-#. Translators: Summary for this add-on
-#. to be shown on installation and add-on information found in Add-ons Manager.
+#. Add-on summary/title, usually the user visible name of the add-on
+#. Translators: Summary/title for this add-on
+#. to be shown on installation and add-on information found in add-on store
 #: addon\appModules\outlook.py:198
-#: addon\globalPlugins\robEnhancements\__init__.py:136 buildVars.py:23
+#: addon\globalPlugins\robEnhancements\__init__.py:136 buildVars.py:21
 msgid "ROB enhancements"
 msgstr "ROB Verbesserungen"
 
@@ -172,9 +172,8 @@ msgstr "32bit"
 
 #. Translators: message  copied to clipboard
 #: addon\globalPlugins\robEnhancements\__init__.py:132
-#, fuzzy
 msgid "Copied into the clipboard."
-msgstr "Kopiert - {URL}"
+msgstr "In die Zwischenablage kopiert."
 
 #. Translators: Shows the current URL of the document, press twice = copies to the clipboard.
 #: addon\globalPlugins\robEnhancements\__init__.py:144
@@ -261,8 +260,8 @@ msgid "{appname} ({is64bit}, {cpu}%) {version} {productname}"
 msgstr "{appname} ({is64bit}, {cpu}%) {version} {productname}"
 
 #. Add-on description
-#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-#: buildVars.py:26
+#. Translators: Long description to be shown for this add-on on add-on information from add-on store
+#: buildVars.py:24
 msgid ""
 "This extension adds new functionality to applications and provides new "
 "global help:\n"
@@ -321,6 +320,16 @@ msgstr ""
 "Es können weitere 4 Ordner festgelegt und angesprungen werden. Die Ordner "
 "können sich auch in einem anderen Konto befinden. Die Gesten dafür sind noch "
 "frei zu belegen."
+
+#. Brief changelog for this version
+#. Translators: what's new content for the add-on version to be shown in the add-on store
+#: buildVars.py:51
+msgid ""
+"* Version: 2026.03.15\n"
+"- Prepared for NVDA 2026.1"
+msgstr ""
+"* Version: 2026.03.15\n"
+"- Vorbereitet für NVDA 2026.1"
 
 #~ msgid ""
 #~ "\n"

@@ -4,8 +4,9 @@ addon/doc/en/
 *.html
 manifest.ini
 *.mo
-*.bat
-*.pot
+go.bat
+make_release.bat
+pot.bat
 *.py[co]
 *.nvda-addon
 .sconsign.dblite
