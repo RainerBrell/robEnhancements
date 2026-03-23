@@ -207,8 +207,6 @@ class AppModule(outlook.AppModule):
 					obj.name = obj.name.replace("Ungelesen ", "Neu ", 1)
 			else:
 				f = obj.children[0].name
-			config.conf["documentFormatting"]["reportTableHeaders"] = 0
-			config.conf["documentFormatting"]["reportTableCellCoords"] = False
 		nextHandler()
 		
 	def emptyFolder(self, obj):
