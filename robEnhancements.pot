@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 'robEnhancements' '2026.02.22'\n"
+"Project-Id-Version: 'robEnhancements' '2026.05.03'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-03-15 14:35+0100\n"
+"POT-Creation-Date: 2026-05-03 16:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -289,6 +289,8 @@ msgstr ""
 #. Translators: what's new content for the add-on version to be shown in the add-on store
 #: buildVars.py:51
 msgid ""
-"* Version: 2026.03.15\n"
+"# Version 2026.05.03\n"
+"- Stable version for 2026.1\n"
+"# Version 2026.03.15\n"
 "- Prepared for NVDA 2026.1"
 msgstr ""
