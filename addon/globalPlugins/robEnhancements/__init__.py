@@ -139,6 +139,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		#super(globalPluginHandler.GlobalPlugin, self).__init__()
 		super().__init__()
 
+	def chooseNVDAObjectOverlayClasses(self, obj, clsList):
+		try:
+			if explorer.is_explorer_list_item(obj):
+				clsList.insert(0, explorer.ExplorerListItemBraille)
+			elif explorer.is_explorer_rename_edit(obj):
+				clsList.insert(0, explorer.ExplorerRenameEditBraille)
+		except Exception:
+			pass
+
 	@script(
 		# Translators: Shows the current URL of the document, press twice = copies to the clipboard.
 		description=_("Show document URL, press twice copies to clipboard."),

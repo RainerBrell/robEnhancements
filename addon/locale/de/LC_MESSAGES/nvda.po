@@ -335,6 +335,14 @@ msgstr ""
 "# Version 2026.03.15\n"
 "- Vorbereitet für NVDA 2026.1"
 
+#. Translators: Label used instead of the file/folder name for the
+#. Windows Explorer inline rename edit box (opened e.g. via F2), to
+#. avoid announcing the name twice (once as the label, once as the
+#. current edit content).
+#: addon\globalPlugins\robEnhancements\framework\storage\explorer.py:230
+msgid "Rename"
+msgstr "Umbenennen"
+
 #~ msgid ""
 #~ "\n"
 #~ "support for various apps and some new functions.\n"
