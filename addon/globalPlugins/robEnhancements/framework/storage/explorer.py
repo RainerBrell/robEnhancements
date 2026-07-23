@@ -127,21 +127,50 @@ class ExplorerListItemBraille:
 	as before (like a double click).
 	Additionally, if the "Speak complete line in Explorer" option (ROB
 	enhancements settings category) is enabled, the same detail column
-	values are spoken after the normal focus announcement.
+	values are spoken as part of the normal focus announcement (one single
+	utterance, with the index/count position moved to the very end - not a
+	separate message tacked on afterwards).
 	"""
 
-	def event_gainFocus(self):
-		super().event_gainFocus()
+	def reportFocus(self):
 		try:
 			import config
 			if not config.conf["robEnhancements"]["speakExplorerDetails"]:
+				super().reportFocus()
+				return
+		except Exception:
+			super().reportFocus()
+			return
+		try:
+			import speech
+			import controlTypes
+			import braille
+			sequence = speech.getObjectSpeech(self, reason=controlTypes.OutputReason.FOCUS)
+			if not sequence:
+				super().reportFocus()
 				return
 			extraValues = self._getExplorerColumnValues()
+			positionText, _unused = self._getPositionInfoTexts(braille)
+			# Keep any trailing non-text speech commands (e.g. a
+			# focus-loss-cancellable marker) at the very end of the
+			# sequence; only the text part gets reordered.
+			insertIdx = len(sequence)
+			while insertIdx > 0 and not isinstance(sequence[insertIdx - 1], str):
+				insertIdx -= 1
+			textPart = sequence[:insertIdx]
+			trailingCommands = sequence[insertIdx:]
+			if positionText:
+				try:
+					textPart.remove(positionText)
+				except ValueError:
+					pass
 			if extraValues:
-				import ui
-				ui.message(" ".join(extraValues))
+				textPart.append(" ".join(extraValues))
+			if positionText:
+				textPart.append(positionText)
+			speech.speak(textPart + trailingCommands)
 		except Exception:
-			pass
+			super().reportFocus()
 
 	def _getExplorerColumnValues(self):
 		# Reads every detail column of this item (date modified, type, size,
