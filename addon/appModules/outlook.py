@@ -39,14 +39,20 @@ sectionName = AddOnName
 inboxNames  = ["inbox"]
 
 def initConfiguration():
-	confspec = { 
+	confspec = {
 		"Folder1": "string(default='')",
 		"Folder2": "string(default='')",
 		"Folder3": "string(default='')",
 		"Folder4": "string(default='')",
 		"Folder5": "string(default='')"
 	}
-	config.conf.spec[sectionName] = confspec
+	# Merge instead of replace, since the "robEnhancements" section is also
+	# used by the global plugin (globalPlugins/robEnhancements/__init__.py)
+	# for its own settings; whichever module loads last must not wipe out
+	# the other's keys.
+	existingConfSpec = config.conf.spec.get(sectionName) or {}
+	existingConfSpec.update(confspec)
+	config.conf.spec[sectionName] = existingConfSpec
 
 initConfiguration()
 

@@ -26,30 +26,65 @@
  * nvda+shift+v: Taskname, 32/64bit, CPU usage, version, productname 
  2025.10.14:
  * little bugfix 
- 2026.07.19: 
+ 2026.07.19:
  - Explorer, label "Rename" set when F2 was pressed
  - Explorer, Braille shows all fields in the detailed view in the file and folder list
- 
+ - Explorer, optional speech of the complete detail line (settings: ROB enhancements)
+
 """
 
 import globalPluginHandler
 from scriptHandler import script
-from core import callLater 
+from core import callLater
 import ui
-from tones import beep 
+from tones import beep
 import api
-import os 
-import sys 
+import os
+import sys
 import controlTypes
 import psutil
 import scriptHandler
+import config
+import gui
+import wx
 from .framework.storage import explorer
-from .myMarkdown import getHtmlText 
+from .myMarkdown import getHtmlText
 from .skipTranslation import translate
 import addonHandler
 addonHandler.initTranslation()
 
 AddOnPath = os.path.dirname(__file__)
+
+confspec = {
+	"speakExplorerDetails": "boolean(default=False)",
+}
+# Merge into the "robEnhancements" config section instead of replacing it,
+# since the Outlook appModule (appModules/outlook.py) also defines its own
+# keys (Folder1-5) in this same section; whichever module loads last must
+# not wipe out the other's keys.
+existingConfSpec = config.conf.spec.get("robEnhancements") or {}
+existingConfSpec.update(confspec)
+config.conf.spec["robEnhancements"] = existingConfSpec
+
+class RobEnhancementsSettingsPanel(gui.settingsDialogs.SettingsPanel):
+	# Translators: Title of the ROB enhancements category in NVDA's settings dialog.
+	title = _("ROB enhancements")
+
+	def makeSettings(self, settingsSizer):
+		settingsSizerHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
+		self.speakExplorerDetailsCheckBox = settingsSizerHelper.addItem(
+			wx.CheckBox(
+				self,
+				# Translators: Label of a checkbox in the ROB enhancements settings category. When checked,
+				# NVDA also speaks the other detail columns (date modified, type, size, ...), not just the
+				# name, for the focused item in the Windows Explorer folder view.
+				label=_("Speak complete line in Explorer"),
+			)
+		)
+		self.speakExplorerDetailsCheckBox.SetValue(config.conf["robEnhancements"]["speakExplorerDetails"])
+
+	def onSave(self):
+		config.conf["robEnhancements"]["speakExplorerDetails"] = self.speakExplorerDetailsCheckBox.IsChecked()
 
 def getFileName():
 	try:
@@ -141,6 +176,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def __init__(self):
 		#super(globalPluginHandler.GlobalPlugin, self).__init__()
 		super().__init__()
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(RobEnhancementsSettingsPanel)
+
+	def terminate(self, *args, **kwargs):
+		try:
+			gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(RobEnhancementsSettingsPanel)
+		except Exception:
+			pass
+		super().terminate(*args, **kwargs)
 
 	def chooseNVDAObjectOverlayClasses(self, obj, clsList):
 		try:

@@ -122,10 +122,26 @@ class ExplorerListItemBraille:
 	"""
 	Overlay class for file/folder items in the Windows Explorer folder view.
 	Adds the values of the other detail columns (e.g. date modified, type, size)
-	after the file name on the braille display.
-	Only getBrailleRegions is overridden, so speech output stays unchanged and
-	routing keys keep activating the item exactly as before (like a double click).
+	after the file name on the braille display; this part (getBrailleRegions)
+	never affects speech, and routing keys keep activating the item exactly
+	as before (like a double click).
+	Additionally, if the "Speak complete line in Explorer" option (ROB
+	enhancements settings category) is enabled, the same detail column
+	values are spoken after the normal focus announcement.
 	"""
+
+	def event_gainFocus(self):
+		super().event_gainFocus()
+		try:
+			import config
+			if not config.conf["robEnhancements"]["speakExplorerDetails"]:
+				return
+			extraValues = self._getExplorerColumnValues()
+			if extraValues:
+				import ui
+				ui.message(" ".join(extraValues))
+		except Exception:
+			pass
 
 	def _getExplorerColumnValues(self):
 		# Reads every detail column of this item (date modified, type, size,

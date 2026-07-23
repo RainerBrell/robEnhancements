@@ -345,6 +345,13 @@ msgstr ""
 "# Version 2026.03.15\n"
 "- Vorbereitet für NVDA 2026.1"
 
+#. Translators: Label of a checkbox in the ROB enhancements settings category. When checked,
+#. NVDA also speaks the other detail columns (date modified, type, size, ...), not just the
+#. name, for the focused item in the Windows Explorer folder view.
+#: addon\globalPlugins\robEnhancements\__init__.py:74
+msgid "Speak complete line in Explorer"
+msgstr "Komplette Zeile im Explorer sprechen"
+
 #~ msgid ""
 #~ "\n"
 #~ "support for various apps and some new functions.\n"
