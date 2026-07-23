@@ -10,6 +10,7 @@ import os
 from comtypes.client import CreateObject as COMCreate
 from .xplorer2Helper import Xplorer2Helper
 from .totalCommanderHelper import TotalCommanderHelper
+from .skipTranslation import translate
 import addonHandler
 addonHandler.initTranslation()
 
@@ -102,14 +103,6 @@ def get_selected_file(obj=None):
 	if not file_path: file_path = get_selected_file_xplorer2(obj)
 	return file_path
 
-# UIA automation ids of the extra Explorer detail columns shown on the braille display,
-# in the order they should appear after the file name.
-EXPLORER_BRAILLE_COLUMN_IDS = (
-	"System.DateModified",
-	"System.ItemTypeText",
-	"System.Size",
-)
-
 def is_explorer_list_item(obj):
 	"""
 	True if obj is a file/folder item inside the Windows Explorer folder view
@@ -135,20 +128,29 @@ class ExplorerListItemBraille:
 	"""
 
 	def _getExplorerColumnValues(self):
-		values = {}
+		# Reads every detail column of this item (date modified, type, size,
+		# capacity, free space, author, ... - whatever columns are actually
+		# configured/visible, which differs e.g. between a normal folder view
+		# and "This PC"). The children are exposed by Explorer in the same
+		# left-to-right order as the visible column headers, and each one's
+		# UIA automation id matches the corresponding column (System.*),
+		# except for the name column itself, which is skipped since it's
+		# already shown as the item's name.
+		values = []
 		try:
 			for child in self.children:
 				try:
 					automationId = child.UIAAutomationId
 				except Exception:
 					continue
-				if automationId in EXPLORER_BRAILLE_COLUMN_IDS and automationId not in values:
-					value = child.value
-					if value:
-						values[automationId] = value
+				if not automationId or automationId == "System.ItemNameDisplay":
+					continue
+				value = child.value
+				if value:
+					values.append(value)
 		except Exception:
 			pass
-		return [values[columnId] for columnId in EXPLORER_BRAILLE_COLUMN_IDS if columnId in values]
+		return values
 
 	def _getPositionInfoTexts(self, brailleModule):
 		# Returns a tuple (localizedText, compactText):
@@ -264,4 +266,4 @@ class ExplorerRenameEditBraille:
 		# Windows Explorer inline rename edit box (opened e.g. via F2), to
 		# avoid announcing the name twice (once as the label, once as the
 		# current edit content).
-		self.name = _("Rename")
+		self.name = translate("&Rename").replace("&", "")

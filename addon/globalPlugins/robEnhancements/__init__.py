@@ -3,7 +3,7 @@
  ROB enhancements for NVDA 
  This file is covered by the GNU General Public License.
  See the file COPYING for more details.
- Copyright (C) 2024-2025 Rainer Brell nvda@brell.net 
+ Copyright (C) 2024-2026 Rainer Brell nvda@brell.net 
  For file access I used code from the NAO project
  Thanks for the permission: Alessandro Albano, Davide De Carne and Simone Dal Maso
 
@@ -26,6 +26,9 @@
  * nvda+shift+v: Taskname, 32/64bit, CPU usage, version, productname 
  2025.10.14:
  * little bugfix 
+ 2026.07.19: 
+ - Explorer, label "Rename" set when F2 was pressed
+ - Explorer, Braille shows all fields in the detailed view in the file and folder list
  
 """
 

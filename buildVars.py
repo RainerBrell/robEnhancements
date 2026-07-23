@@ -45,10 +45,13 @@ Shift+Alt+i, Go to Folder 1
 A further 4 folders can be defined and jumped to. The folders can also be in another account. The gestures for this are still freely available."""
 	),
 	# version
-	addon_version="2026.05.03",
+	addon_version="2026.07.19",
 	# Brief changelog for this version
 	# Translators: what's new content for the add-on version to be shown in the add-on store
-	addon_changelog=_("""# Version 2026.05.03
+	addon_changelog=_("""# Version 2026.07.19
+- Explorer: braille now also shows the detail columns (date modified, type, size, ...) for the focused file/folder
+- Explorer: the inline rename edit box (F2) now uses a "Rename" label instead of repeating the file/folder name
+# Version 2026.05.03
 - Stable version for 2026.1
 # Version 2026.03.15
 - Prepared for NVDA 2026.1"""

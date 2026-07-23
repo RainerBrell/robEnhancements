@@ -325,23 +325,25 @@ msgstr ""
 #. Translators: what's new content for the add-on version to be shown in the add-on store
 #: buildVars.py:51
 msgid ""
+"# Version 2026.07.19\n"
+"- Explorer: braille now also shows the detail columns (date modified, type, "
+"size, ...) for the focused file/folder\n"
+"- Explorer: the inline rename edit box (F2) now uses a \"Rename\" label "
+"instead of repeating the file/folder name\n"
 "# Version 2026.05.03\n"
 "- Stable version for 2026.1\n"
 "# Version 2026.03.15\n"
 "- Prepared for NVDA 2026.1"
 msgstr ""
+"# Version 2026.07.19\n"
+"- Explorer: Braille zeigt jetzt auch die Detailspalten (Änderungsdatum, "
+"Typ, Größe, ...) der fokussierten Datei/des Ordners an\n"
+"- Explorer: Das Umbenennen-Eingabefeld (F2) zeigt jetzt das Label "
+"\"Umbenennen\" statt des Datei-/Ordnernamens\n"
 "# Version 2026.05.03\n"
 "- Stabile Version für 2026.1\n"
 "# Version 2026.03.15\n"
 "- Vorbereitet für NVDA 2026.1"
-
-#. Translators: Label used instead of the file/folder name for the
-#. Windows Explorer inline rename edit box (opened e.g. via F2), to
-#. avoid announcing the name twice (once as the label, once as the
-#. current edit content).
-#: addon\globalPlugins\robEnhancements\framework\storage\explorer.py:230
-msgid "Rename"
-msgstr "Umbenennen"
 
 #~ msgid ""
 #~ "\n"
