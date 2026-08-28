@@ -26,10 +26,11 @@
  * nvda+shift+v: Taskname, 32/64bit, CPU usage, version, productname 
  2025.10.14:
  * little bugfix 
- 2026.07.19:
+ 2026.08.28:
  - Explorer, label "Rename" set when F2 was pressed
  - Explorer, Braille shows all fields in the detailed view in the file and folder list
  - Explorer, optional speech of the complete detail line (settings: ROB enhancements)
+ - Bugfix for Total Commander 64 
 
 """
 

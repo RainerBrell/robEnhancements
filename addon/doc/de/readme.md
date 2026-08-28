@@ -4,6 +4,15 @@
 
 Diese Erweiterung fügt Anwendungen neue Funktionen hinzu und bietet globale Unterstützung.
 
+## Windows Explorer
+
+1.  **Erweiterte Informationen auf der Braillezeile:**
+    Ab sofort werden im Explorer auf der Braillezeile nicht mehr nur der selektierte Dateiname oder Ordner angezeigt, sondern **alle Spalteninformationen**. Dies sorgt für eine deutlich verbesserte Übersichtlichkeit und ermöglicht es, alle relevanten Details direkt abzulesen.
+2.  **Optionale Sprachausgabe der Spalteninformationen:**
+    Wer diese zusätzlichen Informationen auch über die Sprachausgabe hören möchte, kann dies ganz einfach festlegen: Im NVDA-Menü unter **Optionen > Einstellungen > "ROB Verbesserungen"** findet man die entsprechende Einstellung, um diese Funktion zu aktivieren.
+3.  **Korrektur beim Umbenennen von Dateien/Ordnern (F2):**
+    Eine weitere, oft gewünschte Korrektur betrifft das Umbenennen von Dateien und Ordnern. Wenn man im Explorer F2 drückt, um einen Eintrag umzubenennen, wird nun als Beschriftung für dieses Eingabefeld nicht mehr fälschlicherweise der Dateiname ausgegeben, sondern korrekt das Wort **"Umbenennen"**. Das erhöht die Klarheit und verhindert Missverständnisse.
+
 ## Markdown
 
 Wenn eine Markdown-Datei (*.md) im Windows Explorer oder Total Commander ausgewählt ist:

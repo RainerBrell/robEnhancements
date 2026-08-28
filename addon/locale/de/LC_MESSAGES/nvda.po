@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-05-03 16:52+0200\n"
-"PO-Revision-Date: 2026-05-03 16:55+0200\n"
+"POT-Creation-Date: 2026-08-28 16:13+0200\n"
+"PO-Revision-Date: 2026-08-28 16:26+0200\n"
 "Last-Translator: Rainer Brell <nvda@brell.net>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -20,24 +20,24 @@ msgstr ""
 
 #. outlook 2010
 #. Translators: unsupported Outlook version
-#: addon\appModules\outlook.py:82
+#: addon\appModules\outlook.py:88
 #, python-brace-format
 msgid "Your Outlook version {Versionsnumber} is not supported."
 msgstr "Ihre Outlook-Version {Versionsnumber} wird nicht unterstützt."
 
 #. Translators: Outlook mail Folder {nr} saved
-#: addon\appModules\outlook.py:104
+#: addon\appModules\outlook.py:110
 #, python-brace-format
 msgid "Folder {nr} saved as {folderPath}"
 msgstr "Ordner {nr} gespeichert - {folderPath}"
 
 #. Translators: Error saving folder
-#: addon\appModules\outlook.py:108
+#: addon\appModules\outlook.py:114
 msgid "Error saving folder"
 msgstr "Fehler beim Speichern des Ordners"
 
 #. Translators: No folder set yet
-#: addon\appModules\outlook.py:123
+#: addon\appModules\outlook.py:129
 #, python-brace-format
 msgid ""
 "The folder {nr} has not been specified yet. Please specify a folder to jump "
@@ -47,214 +47,224 @@ msgstr ""
 "zu dem zuerst gesprungen werden soll."
 
 #. Translators: Go to the folder
-#: addon\appModules\outlook.py:147
+#: addon\appModules\outlook.py:153
 #, python-brace-format
 msgid "Go to the folder {entry}"
 msgstr "Gehe zu {entry}"
 
 #. tones.beep(100, 100)
 #. Translators: empty outlook folder
-#: addon\appModules\outlook.py:151 addon\appModules\outlook.py:220
+#: addon\appModules\outlook.py:157 addon\appModules\outlook.py:226
 msgid "This folder is empty."
 msgstr "Dieser Ordner ist leer."
 
 #. Translators: Can not found the Folder
-#: addon\appModules\outlook.py:157
+#: addon\appModules\outlook.py:163
 #, python-brace-format
 msgid "Can not found the folder {folderList}"
 msgstr "Der Ordner {folderList} kann nicht gefunden werden."
 
 #. Translators: Can not found the outlook account
-#: addon\appModules\outlook.py:161
+#: addon\appModules\outlook.py:167
 #, python-brace-format
 msgid "Can not found the account: {account}"
 msgstr "Das Konto {account} wurde nicht gefunden."
 
 #. Translators: Error, cannot go to the specified path.
-#: addon\appModules\outlook.py:165
+#: addon\appModules\outlook.py:171
 #, python-brace-format
 msgid "Error, cannot go to the specified path {newPath}."
 msgstr "Fehler, der angegebene Pfad {newPath} kann nicht aufgerufen werden1."
 
 #. Translators: Name of the category for the keyboard mapping dialog
+#. Translators: Title of the ROB enhancements category in NVDA's settings dialog.
+#. Translators: Name of the category for the keyboard mapping dialog
 #. Add-on summary/title, usually the user visible name of the add-on
 #. Translators: Summary/title for this add-on
 #. to be shown on installation and add-on information found in add-on store
-#: addon\appModules\outlook.py:198
-#: addon\globalPlugins\robEnhancements\__init__.py:136 buildVars.py:21
+#: addon\appModules\outlook.py:204
+#: addon\globalPlugins\robEnhancements\__init__.py:72
+#: addon\globalPlugins\robEnhancements\__init__.py:175 buildVars.py:21
 msgid "ROB enhancements"
 msgstr "ROB Verbesserungen"
 
 #. Translators: Jumps to the next Outlook folder with unread mails below the inbox.
-#: addon\appModules\outlook.py:224
+#: addon\appModules\outlook.py:230
 msgid "Jumps to the next Outlook folder with unread mails below the inbox."
 msgstr ""
 "Springt zum nächsten Outlook-Ordner mit ungelesenen E-Mails unterhalb des "
 "Posteingangs."
 
 #. Translators: unread mails found in folder
-#: addon\appModules\outlook.py:245
+#: addon\appModules\outlook.py:251
 #, python-brace-format
 msgid "{count} mails in the folder {folder}"
 msgstr "{count} Mails im Ordner {folder}"
 
 #. Translators: No unread mails found
-#: addon\appModules\outlook.py:250
+#: addon\appModules\outlook.py:256
 msgid "No unread mails found"
 msgstr "Keine ungelesenen E-Mails gefunden"
 
 #. Translators: if the outlook object modell is not available
-#: addon\appModules\outlook.py:253
+#: addon\appModules\outlook.py:259
 msgid "Outlook object  not available - please contact the addon developer"
 msgstr ""
 "Outlook-Objekt nicht verfügbar – wenden Sie sich bitte an den Add-on-"
 "Entwickler"
 
 #. Translators: set outlook mail folder 1
-#: addon\appModules\outlook.py:260
+#: addon\appModules\outlook.py:266
 msgid "Set outlook mail folder 1"
 msgstr "Outlook-Ordner 1 festlegen"
 
 #. Translators: Go to outlook mail folder 1
-#: addon\appModules\outlook.py:268
+#: addon\appModules\outlook.py:274
 msgid "Go to outlook mail folder 1"
 msgstr "Gehe zu Outlook-Ordner 1"
 
 #. Translators: set outlook mail folder 2
-#: addon\appModules\outlook.py:276
+#: addon\appModules\outlook.py:282
 msgid "Set outlook mail folder 2"
 msgstr "Outlook-Ordner 2 festlegen"
 
 #. Translators: Go to outlook mail folder 2
-#: addon\appModules\outlook.py:284
+#: addon\appModules\outlook.py:290
 msgid "Go to outlook mail folder 2"
 msgstr "Gehe zu Outlook-Ordner 2"
 
 #. Translators: set outlook mail folder 3
-#: addon\appModules\outlook.py:292
+#: addon\appModules\outlook.py:298
 msgid "Set outlook mail folder 3"
 msgstr "Outlook-Ordner 3 festlegen"
 
 #. Translators: Go to outlook mail folder 3
-#: addon\appModules\outlook.py:300
+#: addon\appModules\outlook.py:306
 msgid "Go to outlook mail folder 3"
 msgstr "Gehe zu Outlook-Ordner 3"
 
 #. Translators: set outlook mail folder 4
-#: addon\appModules\outlook.py:308
+#: addon\appModules\outlook.py:314
 msgid "Set outlook mail folder 4"
 msgstr "Outlook-Ordner 4 festlegen"
 
 #. Translators: Go to outlook mail folder 4
-#: addon\appModules\outlook.py:316
+#: addon\appModules\outlook.py:322
 msgid "Go to outlook mail folder 4"
 msgstr "Gehe zu Outlook-Ordner 4"
 
 #. Translators: set outlook mail folder 5
-#: addon\appModules\outlook.py:324
+#: addon\appModules\outlook.py:330
 msgid "Set outlook mail folder 5"
 msgstr "Outlook-Ordner 5 festlegen"
 
 #. Translators: Go to outlook mail folder 5
-#: addon\appModules\outlook.py:332
+#: addon\appModules\outlook.py:338
 msgid "Go to outlook mail folder 5"
 msgstr "Gehe zu Outlook-Ordner 5"
 
+#. Translators: Label of a checkbox in the ROB enhancements settings category. When checked,
+#. NVDA also speaks the other detail columns (date modified, type, size, ...), not just the
+#. name, for the focused item in the Windows Explorer folder view.
+#: addon\globalPlugins\robEnhancements\__init__.py:82
+msgid "Speak complete line in Explorer"
+msgstr "Komplette Zeile im Explorer sprechen"
+
 #. Translators: 64 bit process
-#: addon\globalPlugins\robEnhancements\__init__.py:103
+#: addon\globalPlugins\robEnhancements\__init__.py:142
 msgid "64bit"
 msgstr "64bit"
 
 #. Translators: 32 bit process
-#: addon\globalPlugins\robEnhancements\__init__.py:106
+#: addon\globalPlugins\robEnhancements\__init__.py:145
 msgid "32bit"
 msgstr "32bit"
 
 #. Translators: message  copied to clipboard
-#: addon\globalPlugins\robEnhancements\__init__.py:132
+#: addon\globalPlugins\robEnhancements\__init__.py:171
 msgid "Copied into the clipboard."
 msgstr "In die Zwischenablage kopiert."
 
 #. Translators: Shows the current URL of the document, press twice = copies to the clipboard.
-#: addon\globalPlugins\robEnhancements\__init__.py:144
+#: addon\globalPlugins\robEnhancements\__init__.py:200
 msgid "Show document URL, press twice copies to clipboard."
 msgstr "Seiten-URL anzeigen, zweimal drücken, in die Zwischenablage kopieren."
 
 #. Translators: URL copied to clipboard
-#: addon\globalPlugins\robEnhancements\__init__.py:156
+#: addon\globalPlugins\robEnhancements\__init__.py:212
 #, python-brace-format
 msgid "copied to clipboard {URL}."
 msgstr "Kopiert - {URL}"
 
 #. Translators: No URL found in browser document
-#: addon\globalPlugins\robEnhancements\__init__.py:159
+#: addon\globalPlugins\robEnhancements\__init__.py:215
 msgid "Document URL not found."
 msgstr "Seiten-URL nicht gefunden."
 
 #. Translators: The user is not in a browser.
-#: addon\globalPlugins\robEnhancements\__init__.py:162
+#: addon\globalPlugins\robEnhancements\__init__.py:218
 msgid "No browser window found."
 msgstr "Kein Browserfenster gefunden."
 
 #. Translators: Shows the current markdown file in the NVDA browser
-#: addon\globalPlugins\robEnhancements\__init__.py:166
+#: addon\globalPlugins\robEnhancements\__init__.py:222
 msgid "Shows the current markdown file in the NVDA browser"
 msgstr "Zeigt die aktuelle Markdown-Datei im NVDA-Browser an"
 
 #. Translators: it is not a markdown file
-#: addon\globalPlugins\robEnhancements\__init__.py:175
-#: addon\globalPlugins\robEnhancements\__init__.py:202
+#: addon\globalPlugins\robEnhancements\__init__.py:231
+#: addon\globalPlugins\robEnhancements\__init__.py:258
 #, python-brace-format
 msgid "{markdownFile} is not a Markdown file"
 msgstr "{markdownFile} ist keine Markdown-Datei"
 
 #. Translators: No markdown file selected
 #. Translators: No markdown file selekted
-#: addon\globalPlugins\robEnhancements\__init__.py:179
-#: addon\globalPlugins\robEnhancements\__init__.py:206
+#: addon\globalPlugins\robEnhancements\__init__.py:235
+#: addon\globalPlugins\robEnhancements\__init__.py:262
 msgid "No markdown file selected"
 msgstr "Keine Markdown-Datei ausgewählt"
 
 #. translators: HTML viewer title
-#: addon\globalPlugins\robEnhancements\__init__.py:188
+#: addon\globalPlugins\robEnhancements\__init__.py:244
 #, python-brace-format
 msgid "Content of {markdownFile} in HTML"
 msgstr "Inhalt von {markdownFile}"
 
 #. Translators: Saves the selected markdown file as an HTML file
-#: addon\globalPlugins\robEnhancements\__init__.py:194
+#: addon\globalPlugins\robEnhancements\__init__.py:250
 msgid "Saves the selected markdown file as an HTML file"
 msgstr "Speichert die ausgewählte Markdown-Datei als HTML-Datei"
 
 #. Translators: No access to the folder
-#: addon\globalPlugins\robEnhancements\__init__.py:213
+#: addon\globalPlugins\robEnhancements\__init__.py:269
 #, python-brace-format
 msgid "No access to the folder {currentPath}"
 msgstr "Kein Zugriff auf den Ordner {currentPath}."
 
 #. Translators: The HTML file could not be created
-#: addon\globalPlugins\robEnhancements\__init__.py:222
+#: addon\globalPlugins\robEnhancements\__init__.py:278
 #, python-brace-format
 msgid "The HTML file {htmlFile} could not be created."
 msgstr "Die Datei {htmlFile} konnte nicht erstellt werden."
 
 #. Translators: The HTML file was written successfully
-#: addon\globalPlugins\robEnhancements\__init__.py:225
+#: addon\globalPlugins\robEnhancements\__init__.py:281
 #, python-brace-format
 msgid "The HTML file {htmlFile} was written successfully"
 msgstr "Die HTML-Datei {htmlFile} wurde erfolgreich geschrieben"
 
 #. Translators: Name and current CPU usage of the process
-#: addon\globalPlugins\robEnhancements\__init__.py:230
+#: addon\globalPlugins\robEnhancements\__init__.py:286
 msgid "Shows the current program Name and CPU usage."
 msgstr "Zeigt den aktuellen Programmnamen und die CPU -Nutzung an."
 
 #. Translators: Wait 1 second to determine the CPU usage
-#: addon\globalPlugins\robEnhancements\__init__.py:237
+#: addon\globalPlugins\robEnhancements\__init__.py:293
 msgid "Please wait..."
 msgstr "Bitte warten..."
 
-#: addon\globalPlugins\robEnhancements\__init__.py:247
+#: addon\globalPlugins\robEnhancements\__init__.py:303
 #, python-brace-format
 msgid "{appname} ({is64bit}, {cpu}%) {version} {productname}"
 msgstr "{appname} ({is64bit}, {cpu}%) {version} {productname}"
@@ -265,6 +275,15 @@ msgstr "{appname} ({is64bit}, {cpu}%) {version} {productname}"
 msgid ""
 "This extension adds new functionality to applications and provides new "
 "global help:\n"
+"\t\n"
+"Windows Explorer:\n"
+"\n"
+"braille now also shows the detail columns (date modified, type, size, ...) "
+"for the focused file/folder\n"
+"The NVDA settings allow you to specify whether the language should also read "
+"the entire line aloud.\n"
+"the inline rename edit box (F2) now uses a \"Rename\" label instead of "
+"repeating the file/folder name\n"
 "\n"
 "If a Markdown file (*.md) is selected in Windows Explorer or total "
 "Commander:\n"
@@ -291,66 +310,76 @@ msgid ""
 "A further 4 folders can be defined and jumped to. The folders can also be in "
 "another account. The gestures for this are still freely available."
 msgstr ""
-"Diese Erweiterung fügt Anwendungen neue Funktionen hinzu und stellt neue "
-"globale Hilfen bereit:\n"
+"Diese Erweiterung fügt Anwendungen neue Funktionen hinzu und bietet neue "
+"globale Befehle.\n"
 "\n"
-"Ist eine Markdown-Datei (*.md) im windows-Explorer oder total Commander "
-"ausgewählt:\n"
+"Windows Explorer:\n"
 "\n"
-"NVDA+Alt+Leerzeichen, Zeigt die Datei im NVDA-Browser an.\n"
-"NVDA+Alt+Umschalt+Leerzeichen, Speichert die Datei im HTML-Format.\n"
+"Braille zeigt nun auch die Detailspalten (Änderungsdatum, Typ, Größe, ...) "
+"für die fokussierte Datei/Ordner an\n"
+"Die NVDA-Einstellungen erlauben es, festzulegen, ob die Sprache auch die "
+"gesamte Zeile vorlesen soll.\n"
+"Das Umbenennungs-Bearbeitungsfeld (F2) verwendet nun die Beschriftung "
+"\"Umbenennen\" anstatt den Datei-/Ordnernamen zu wiederholen.\n"
+"\n"
+"Wenn eine Markdown-Datei (.md) im Windows Explorer oder Total Commander "
+"ausgewählt ist:\n"
+"\n"
+"NVDA+Alt+Leertaste, Zeigt die Datei im NVDA-Browser an.\n"
+"NVDA+Alt+Umschalt+Leertaste, Speichert die Datei im HTML-Format.\n"
 "\n"
 "In allen Browsern:\n"
 "\n"
-"NVDA+Strg+f4, Seiten-URL anzeigen, zweimal drücken, in die Zwischenablage "
-"kopieren.\n"
+"NVDA+Strg+f4, zeigt die Seiten-URL an, zweimal drücken, in die "
+"Zwischenablage kopieren.\n"
 "\n"
 "Allgemein:\n"
 "\n"
-"NVDA+Umschalt+V, zeigt den Programmnamen 32/64bit, CPU -Nutzung, Version, "
-"Produktnam\n"
+"NVDA+Umschalt+v, zeigt Programmname, 32/64bit, CPU-Auslastung, Version, "
+"Produktname\n"
 "\n"
-"Microsoft Outlook 13 oder höher:\n"
+"Microsoft Outlook 13 oder neuer:\n"
 "\n"
-"Umschalt+Alt+j, Springt zum nächsten Ordner mit ungelesenen Mails unterhalb "
-"des Ordners Posteingang.\n"
-"Umschalt+Strg+Alt+i, Speichert den aktuellen Ordner als Ordner 1\n"
-"Umschalt+Alt+i, Gehe zu Ordner 1\n"
+"Umschalt+Alt+j, Springt zum nächsten Ordner mit ungelesenen E-Mails "
+"unterhalb des Posteingangsordners.\n"
+"Umschalt+Strg+Alt+i, Speichert den aktuellen Ordner als Ordner 1.\n"
+"Umschalt+Alt+i, Gehe zu Ordner 1.\n"
 "\n"
-"Es können weitere 4 Ordner festgelegt und angesprungen werden. Die Ordner "
-"können sich auch in einem anderen Konto befinden. Die Gesten dafür sind noch "
-"frei zu belegen."
+"Weitere 4 Ordner können definiert und angesteuert werden. Die Ordner können "
+"sich auch in einem anderen Konto befinden. Die Gesten dafür sind noch frei "
+"verfügbar."
 
 #. Brief changelog for this version
 #. Translators: what's new content for the add-on version to be shown in the add-on store
-#: buildVars.py:51
+#: buildVars.py:57
 msgid ""
-"# Version 2026.07.19\n"
+"# Version 2026.08.28\n"
 "- Explorer: braille now also shows the detail columns (date modified, type, "
 "size, ...) for the focused file/folder\n"
+"- Explorer: The NVDA settings allow you to specify whether the language "
+"should also read the entire line aloud.\n"
 "- Explorer: the inline rename edit box (F2) now uses a \"Rename\" label "
 "instead of repeating the file/folder name\n"
+"- Total Commander: A problem with determining the filename in 64-bit systems "
+"has been fixed.\n"
 "# Version 2026.05.03\n"
 "- Stable version for 2026.1\n"
 "# Version 2026.03.15\n"
 "- Prepared for NVDA 2026.1"
 msgstr ""
-"# Version 2026.07.19\n"
-"- Explorer: Braille zeigt jetzt auch die Detailspalten (Änderungsdatum, "
-"Typ, Größe, ...) der fokussierten Datei/des Ordners an\n"
-"- Explorer: Das Umbenennen-Eingabefeld (F2) zeigt jetzt das Label "
-"\"Umbenennen\" statt des Datei-/Ordnernamens\n"
+"# Version 2026.08.28\n"
+"- Explorer: Braille zeigt jetzt auch die Detailspalten (Änderungsdatum, Typ, "
+"Größe, ...) für die fokussierte Datei/den - fokussierten Ordner an\n"
+"- Explorer: Die NVDA-Einstellungen erlauben es festzulegen, ob die Sprache "
+"auch die gesamte Zeile vorlesen soll.\n"
+"- Explorer: das inline Umbenennungs-Eingabefeld (F2) verwendet jetzt ein "
+"\"Umbenennen\"-Label anstatt den Datei-/Ordnernamen zu wiederholen\n"
+"- Total Commander: Ein Problem bei der Bestimmung des Dateinamens in 64-Bit-"
+"Systemen wurde behoben.\n"
 "# Version 2026.05.03\n"
 "- Stabile Version für 2026.1\n"
 "# Version 2026.03.15\n"
-"- Vorbereitet für NVDA 2026.1"
-
-#. Translators: Label of a checkbox in the ROB enhancements settings category. When checked,
-#. NVDA also speaks the other detail columns (date modified, type, size, ...), not just the
-#. name, for the focused item in the Windows Explorer folder view.
-#: addon\globalPlugins\robEnhancements\__init__.py:74
-msgid "Speak complete line in Explorer"
-msgstr "Komplette Zeile im Explorer sprechen"
+"- Vorbereitet für NVDA 2026.1# Version 2026.07.19"
 
 #~ msgid ""
 #~ "\n"
