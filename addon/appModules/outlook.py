@@ -14,6 +14,7 @@
 """
 
 import appModuleHandler
+from comtypes import COMError
 from nvdaBuiltin.appModules import outlook
 from scriptHandler import script
 from NVDAObjects.UIA import ListItem, UIA
@@ -37,6 +38,10 @@ addonHandler.initTranslation()
 AddOnName   = addonHandler.getCodeAddon().manifest['name']
 sectionName = AddOnName
 inboxNames  = ["inbox"]
+outlookTableFormattingOverride = {
+	"reportTableHeaders": 0,
+	"reportTableCellCoords": False,
+}
 
 def initConfiguration():
 	confspec = {
@@ -202,11 +207,86 @@ class AppModule(outlook.AppModule):
 
 	# Translators: Name of the category for the keyboard mapping dialog 
 	scriptCategory = _("ROB enhancements")
+
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+		self._outlookFormattingOverrideActive = False
+		self._resumeFormattingOverrideAfterConfigSave = False
+		self._savedDocumentFormatting = None
+		config.pre_configSave.register(self._onPreConfigSave)
+		config.post_configSave.register(self._onPostConfigSave)
+		config.pre_configReset.register(self._onPreConfigReset)
+
+	def terminate(self):
+		config.pre_configSave.unregister(self._onPreConfigSave)
+		config.post_configSave.unregister(self._onPostConfigSave)
+		config.pre_configReset.unregister(self._onPreConfigReset)
+		self._deactivateDocumentFormattingOverride()
+		super().terminate()
+
+	def _shouldActivateDocumentFormattingOverride(self, obj):
+		return obj.windowClassName == "OutlookGrid" or (
+			obj.windowClassName == "SUPERGRID"
+			and obj.role == 15
+			and obj.windowControlID == 4704
+		)
+
+	def _getDocumentFormattingSnapshot(self):
+		formatting = config.conf["documentFormatting"]
+		return {
+			key: formatting[key]
+			for key in outlookTableFormattingOverride
+		}
+
+	def _applyDocumentFormattingValues(self, values):
+		formatting = config.conf["documentFormatting"]
+		for key, value in values.items():
+			formatting[key] = value
+
+	def _activateDocumentFormattingOverride(self):
+		if self._outlookFormattingOverrideActive:
+			return
+		self._savedDocumentFormatting = self._getDocumentFormattingSnapshot()
+		self._applyDocumentFormattingValues(outlookTableFormattingOverride)
+		self._outlookFormattingOverrideActive = True
+		self._resumeFormattingOverrideAfterConfigSave = False
+
+	def _restoreSavedDocumentFormatting(self):
+		if self._savedDocumentFormatting is None:
+			return
+		self._applyDocumentFormattingValues(self._savedDocumentFormatting)
+
+	def _deactivateDocumentFormattingOverride(self):
+		if not self._outlookFormattingOverrideActive:
+			return
+		self._restoreSavedDocumentFormatting()
+		self._savedDocumentFormatting = None
+		self._outlookFormattingOverrideActive = False
+		self._resumeFormattingOverrideAfterConfigSave = False
+
+	def _onPreConfigSave(self):
+		if not self._outlookFormattingOverrideActive:
+			return
+		self._restoreSavedDocumentFormatting()
+		self._resumeFormattingOverrideAfterConfigSave = True
+
+	def _onPostConfigSave(self):
+		if not self._outlookFormattingOverrideActive or not self._resumeFormattingOverrideAfterConfigSave:
+			return
+		self._applyDocumentFormattingValues(outlookTableFormattingOverride)
+		self._resumeFormattingOverrideAfterConfigSave = False
+
+	def _onPreConfigReset(self, factoryDefaults=False):
+		self._deactivateDocumentFormattingOverride()
+
+	def event_appModule_loseFocus(self):
+		self._deactivateDocumentFormattingOverride()
 	
 	def event_gainFocus(self, obj, nextHandler):
 		if obj.role == controlTypes.Role.PANE: 
 			callLater(300, lambda: self.emptyFolder(obj))
-		if obj.windowClassName == "OutlookGrid" or obj.windowClassName == "SUPERGRID" and obj.role == 15 and obj.windowControlID == 4704:
+		if self._shouldActivateDocumentFormattingOverride(obj):
+			self._activateDocumentFormattingOverride()
 			# Only for german 
 			if languageHandler.getLanguage().split("_")[0].lower() == "de":
 				if obj.name.startswith("Ungelesen "):
